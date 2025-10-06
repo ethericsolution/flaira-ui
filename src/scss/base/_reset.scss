@@ -1,0 +1,32 @@
+// Custom reset and base styles
+:root {
+  --sidebar-width: #{$sidebar-width};
+  --top-navbar-height: #{$top-navbar-height};
+  --sidebar-header-height: #{$sidebar-header-height};
+  --header-height: #{$header-height};
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $light;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $gray-700;
+  // overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+// Selection
+::selection {
+  background: rgba($primary, 0.1);
+  color: $primary;
+}
+
+main {
+  overflow-x: auto;
+}

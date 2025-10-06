@@ -1,0 +1,618 @@
+{% extends "layouts/base.njk" %} {% block title %}Badges{% endblock %} {% block
+content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div>
+    <h1 class="h2 fw-bold text-dark mb-2">Badges</h1>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item">
+          <a href="/" class="text-decoration-none">Home</a>
+        </li>
+        <li class="breadcrumb-item active text-muted" aria-current="page">
+          Badges
+        </li>
+      </ol>
+    </nav>
+  </div>
+  <div class="d-flex gap-2">
+    <button class="btn btn-outline-secondary">
+      <i class="bi bi-code me-2"></i>
+      Show Code
+    </button>
+    <button class="btn btn-primary">
+      <i class="bi bi-download me-2"></i>
+      Export
+    </button>
+  </div>
+</div>
+
+<div class="row">
+  <!-- Basic Badges -->
+  <div class="col-lg-6 mb-4">
+    <div class="card shadow-sm h-100">
+      <div class="card-header bg-white py-3">
+        <h5 class="card-title mb-0 fw-semibold text-dark">Basic Badges</h5>
+      </div>
+      <div class="card-body">
+        <div class="mb-4">
+          <h6 class="fw-semibold mb-3">Solid Badges</h6>
+          <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
+            <span class="badge bg-primary">Primary</span>
+            <span class="badge bg-secondary">Secondary</span>
+            <span class="badge bg-success">Success</span>
+            <span class="badge bg-danger">Danger</span>
+            <span class="badge bg-warning text-dark">Warning</span>
+            <span class="badge bg-info text-dark">Info</span>
+            <span class="badge bg-light text-dark">Light</span>
+            <span class="badge bg-dark">Dark</span>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <h6 class="fw-semibold mb-3">Outline Badges</h6>
+          <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
+            <span class="badge bg-outline-primary">Primary</span>
+            <span class="badge bg-outline-secondary">Secondary</span>
+            <span class="badge bg-outline-success">Success</span>
+            <span class="badge bg-outline-danger">Danger</span>
+            <span class="badge bg-outline-warning">Warning</span>
+            <span class="badge bg-outline-info">Info</span>
+            <span class="badge bg-outline-light text-dark">Light</span>
+            <span class="badge bg-outline-dark">Dark</span>
+          </div>
+        </div>
+
+        <div>
+          <h6 class="fw-semibold mb-3">Soft Badges</h6>
+          <div class="d-flex flex-wrap gap-2 align-items-center">
+            <span class="badge bg-soft-primary">Primary</span>
+            <span class="badge bg-soft-secondary">Secondary</span>
+            <span class="badge bg-soft-success">Success</span>
+            <span class="badge bg-soft-danger">Danger</span>
+            <span class="badge bg-soft-warning">Warning</span>
+            <span class="badge bg-soft-info">Info</span>
+            <span class="badge bg-soft-light text-dark">Light</span>
+            <span class="badge bg-soft-dark">Dark</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Badge Sizes -->
+  <div class="col-lg-6 mb-4">
+    <div class="card shadow-sm h-100">
+      <div class="card-header bg-white py-3">
+        <h5 class="card-title mb-0 fw-semibold text-dark">Badge Sizes</h5>
+      </div>
+      <div class="card-body">
+        <div class="mb-4">
+          <h6 class="fw-semibold mb-3">Default Size</h6>
+          <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
+            <span class="badge bg-primary">Default</span>
+            <span class="badge bg-success">Badge</span>
+            <span class="badge bg-danger">Size</span>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <h6 class="fw-semibold mb-3">Large Badges</h6>
+          <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
+            <span class="badge bg-primary badge-lg">Large</span>
+            <span class="badge bg-success badge-lg">Badge</span>
+            <span class="badge bg-danger badge-lg">Size</span>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <h6 class="fw-semibold mb-3">Small Badges</h6>
+          <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
+            <span class="badge bg-primary badge-sm">Small</span>
+            <span class="badge bg-success badge-sm">Badge</span>
+            <span class="badge bg-danger badge-sm">Size</span>
+          </div>
+        </div>
+
+        <div>
+          <h6 class="fw-semibold mb-3">Extra Small Badges</h6>
+          <div class="d-flex flex-wrap gap-2 align-items-center">
+            <span class="badge bg-primary badge-xs">XS</span>
+            <span class="badge bg-success badge-xs">Badge</span>
+            <span class="badge bg-danger badge-xs">Size</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <!-- Badges with Icons -->
+  <div class="col-lg-6 mb-4">
+    <div class="card shadow-sm h-100">
+      <div class="card-header bg-white py-3">
+        <h5 class="card-title mb-0 fw-semibold text-dark">Badges with Icons</h5>
+      </div>
+      <div class="card-body">
+        <div class="mb-4">
+          <h6 class="fw-semibold mb-3">Solid with Icons</h6>
+          <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
+            <span class="badge bg-primary">
+              <i class="bi bi-star me-1"></i>
+              Featured
+            </span>
+            <span class="badge bg-success">
+              <i class="bi bi-check-circle me-1"></i>
+              Verified
+            </span>
+            <span class="badge bg-warning text-dark">
+              <i class="bi bi-clock me-1"></i>
+              Pending
+            </span>
+            <span class="badge bg-danger">
+              <i class="bi bi-x-circle me-1"></i>
+              Rejected
+            </span>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <h6 class="fw-semibold mb-3">Outline with Icons</h6>
+          <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
+            <span class="badge bg-outline-primary">
+              <i class="bi bi-eye me-1"></i>
+              View
+            </span>
+            <span class="badge bg-outline-success">
+              <i class="bi bi-download me-1"></i>
+              Download
+            </span>
+            <span class="badge bg-outline-warning">
+              <i class="bi bi-bell me-1"></i>
+              Alert
+            </span>
+            <span class="badge bg-outline-danger">
+              <i class="bi bi-trash me-1"></i>
+              Delete
+            </span>
+          </div>
+        </div>
+
+        <div>
+          <h6 class="fw-semibold mb-3">Soft with Icons</h6>
+          <div class="d-flex flex-wrap gap-2 align-items-center">
+            <span class="badge bg-soft-primary">
+              <i class="bi bi-info-circle me-1"></i>
+              Info
+            </span>
+            <span class="badge bg-soft-success">
+              <i class="bi bi-check-lg me-1"></i>
+              Success
+            </span>
+            <span class="badge bg-soft-warning">
+              <i class="bi bi-exclamation-triangle me-1"></i>
+              Warning
+            </span>
+            <span class="badge bg-soft-danger">
+              <i class="bi bi-exclamation-circle me-1"></i>
+              Error
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pill Badges -->
+  <div class="col-lg-6 mb-4">
+    <div class="card shadow-sm h-100">
+      <div class="card-header bg-white py-3">
+        <h5 class="card-title mb-0 fw-semibold text-dark">Pill Badges</h5>
+      </div>
+      <div class="card-body">
+        <div class="mb-4">
+          <h6 class="fw-semibold mb-3">Solid Pill Badges</h6>
+          <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
+            <span class="badge bg-primary rounded-pill">Primary</span>
+            <span class="badge bg-secondary rounded-pill">Secondary</span>
+            <span class="badge bg-success rounded-pill">Success</span>
+            <span class="badge bg-danger rounded-pill">Danger</span>
+            <span class="badge bg-warning text-dark rounded-pill">Warning</span>
+            <span class="badge bg-info text-dark rounded-pill">Info</span>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <h6 class="fw-semibold mb-3">Outline Pill Badges</h6>
+          <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
+            <span class="badge bg-outline-primary rounded-pill">Primary</span>
+            <span class="badge bg-outline-secondary rounded-pill"
+              >Secondary</span
+            >
+            <span class="badge bg-outline-success rounded-pill">Success</span>
+            <span class="badge bg-outline-danger rounded-pill">Danger</span>
+            <span class="badge bg-outline-warning rounded-pill">Warning</span>
+            <span class="badge bg-outline-info rounded-pill">Info</span>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <h6 class="fw-semibold mb-3">Soft Pill Badges</h6>
+          <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
+            <span class="badge bg-soft-primary rounded-pill">Primary</span>
+            <span class="badge bg-soft-secondary rounded-pill">Secondary</span>
+            <span class="badge bg-soft-success rounded-pill">Success</span>
+            <span class="badge bg-soft-danger rounded-pill">Danger</span>
+            <span class="badge bg-soft-warning rounded-pill">Warning</span>
+            <span class="badge bg-soft-info rounded-pill">Info</span>
+          </div>
+        </div>
+
+        <div>
+          <h6 class="fw-semibold mb-3">Pill Badges with Icons</h6>
+          <div class="d-flex flex-wrap gap-2 align-items-center">
+            <span class="badge bg-primary rounded-pill">
+              <i class="bi bi-chat me-1"></i>
+              5
+            </span>
+            <span class="badge bg-success rounded-pill">
+              <i class="bi bi-bell me-1"></i>
+              12
+            </span>
+            <span class="badge bg-warning text-dark rounded-pill">
+              <i class="bi bi-envelope me-1"></i>
+              3
+            </span>
+            <span class="badge bg-danger rounded-pill">
+              <i class="bi bi-heart me-1"></i>
+              24
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <!-- Badges in Text -->
+  <div class="col-lg-6 mb-4">
+    <div class="card shadow-sm h-100">
+      <div class="card-header bg-white py-3">
+        <h5 class="card-title mb-0 fw-semibold text-dark">Badges in Text</h5>
+      </div>
+      <div class="card-body">
+        <div class="mb-3">
+          <h6 class="fw-semibold mb-3">Headings with Badges</h6>
+          <h1 class="h3 fw-bold">
+            Example heading
+            <span class="badge bg-primary ms-2">New</span>
+          </h1>
+          <h2 class="h4 fw-semibold mt-3">
+            Example heading
+            <span class="badge bg-success ms-2">Success</span>
+          </h2>
+          <h3 class="h5 fw-semibold mt-3">
+            Example heading
+            <span class="badge bg-warning text-dark ms-2">Warning</span>
+          </h3>
+        </div>
+
+        <div class="mb-3">
+          <h6 class="fw-semibold mb-3">Paragraph with Badges</h6>
+          <p class="mb-2">
+            This is a paragraph with a
+            <span class="badge bg-info">info badge</span> included in the text
+            flow.
+          </p>
+          <p class="mb-0">
+            Another paragraph with a
+            <span class="badge bg-danger">danger badge</span> to highlight
+            important information.
+          </p>
+        </div>
+
+        <div>
+          <h6 class="fw-semibold mb-3">Links with Badges</h6>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#" class="text-decoration-none">
+              Inbox <span class="badge bg-primary">42</span>
+            </a>
+            <a href="#" class="text-decoration-none">
+              Notifications <span class="badge bg-success">3</span>
+            </a>
+            <a href="#" class="text-decoration-none">
+              Messages <span class="badge bg-danger">7</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Status Badges -->
+  <div class="col-lg-6 mb-4">
+    <div class="card shadow-sm h-100">
+      <div class="card-header bg-white py-3">
+        <h5 class="card-title mb-0 fw-semibold text-dark">Status Badges</h5>
+      </div>
+      <div class="card-body">
+        <div class="mb-4">
+          <h6 class="fw-semibold mb-3">User Status</h6>
+          <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
+            <span class="badge bg-success">
+              <i class="bi bi-circle-fill me-1" style="font-size: 6px"></i>
+              Active
+            </span>
+            <span class="badge bg-secondary">
+              <i class="bi bi-circle-fill me-1" style="font-size: 6px"></i>
+              Offline
+            </span>
+            <span class="badge bg-warning text-dark">
+              <i class="bi bi-circle-fill me-1" style="font-size: 6px"></i>
+              Away
+            </span>
+            <span class="badge bg-danger">
+              <i class="bi bi-circle-fill me-1" style="font-size: 6px"></i>
+              Busy
+            </span>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <h6 class="fw-semibold mb-3">Order Status</h6>
+          <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
+            <span class="badge bg-primary">Pending</span>
+            <span class="badge bg-info">Processing</span>
+            <span class="badge bg-warning text-dark">Shipped</span>
+            <span class="badge bg-success">Delivered</span>
+            <span class="badge bg-danger">Cancelled</span>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <h6 class="fw-semibold mb-3">Priority Levels</h6>
+          <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
+            <span class="badge bg-danger">Critical</span>
+            <span class="badge bg-warning text-dark">High</span>
+            <span class="badge bg-info">Medium</span>
+            <span class="badge bg-secondary">Low</span>
+          </div>
+        </div>
+
+        <div>
+          <h6 class="fw-semibold mb-3">Project Status</h6>
+          <div class="d-flex flex-wrap gap-2 align-items-center">
+            <span class="badge bg-success">Completed</span>
+            <span class="badge bg-primary">In Progress</span>
+            <span class="badge bg-warning text-dark">On Hold</span>
+            <span class="badge bg-secondary">Planning</span>
+            <span class="badge bg-danger">Cancelled</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <!-- Notification Badges -->
+  <div class="col-12 mb-4">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white py-3">
+        <h5 class="card-title mb-0 fw-semibold text-dark">
+          Notification Badges
+        </h5>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-4 mb-3">
+            <h6 class="fw-semibold mb-3">Buttons with Badges</h6>
+            <div class="d-flex flex-wrap gap-2">
+              <button type="button" class="btn btn-primary position-relative">
+                Notifications
+                <span
+                  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                >
+                  5
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+              </button>
+              <button
+                type="button"
+                class="btn btn-outline-secondary position-relative"
+              >
+                Messages
+                <span
+                  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success"
+                >
+                  3
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mb-3">
+            <h6 class="fw-semibold mb-3">Icons with Badges</h6>
+            <div class="d-flex flex-wrap gap-4">
+              <button type="button" class="btn btn-light position-relative p-2">
+                <i class="bi bi-bell fs-5"></i>
+                <span
+                  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                >
+                  12
+                </span>
+              </button>
+              <button type="button" class="btn btn-light position-relative p-2">
+                <i class="bi bi-envelope fs-5"></i>
+                <span
+                  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary"
+                >
+                  4
+                </span>
+              </button>
+              <button type="button" class="btn btn-light position-relative p-2">
+                <i class="bi bi-cart fs-5"></i>
+                <span
+                  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success"
+                >
+                  3
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mb-3">
+            <h6 class="fw-semibold mb-3">Avatar with Badges</h6>
+            <div class="d-flex flex-wrap gap-3">
+              <div class="position-relative">
+                <img
+                  src="https://placehold.co/40x40"
+                  class="rounded-circle"
+                  alt="User"
+                  width="40"
+                  height="40"
+                />
+                <span
+                  class="position-absolute bottom-0 end-0 badge badge-dot bg-success"
+                ></span>
+              </div>
+              <div class="position-relative">
+                <img
+                  src="https://placehold.co/40x40"
+                  class="rounded-circle"
+                  alt="User"
+                  width="40"
+                  height="40"
+                />
+                <span
+                  class="position-absolute top-0 end-0 badge rounded-pill bg-danger"
+                  >2</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Outline Badges */
+  .bg-outline-primary {
+    background-color: transparent;
+    border: 1px solid #0d6efd;
+    color: #0d6efd;
+  }
+
+  .bg-outline-secondary {
+    background-color: transparent;
+    border: 1px solid #6c757d;
+    color: #6c757d;
+  }
+
+  .bg-outline-success {
+    background-color: transparent;
+    border: 1px solid #198754;
+    color: #198754;
+  }
+
+  .bg-outline-danger {
+    background-color: transparent;
+    border: 1px solid #dc3545;
+    color: #dc3545;
+  }
+
+  .bg-outline-warning {
+    background-color: transparent;
+    border: 1px solid #ffc107;
+    color: #ffc107;
+  }
+
+  .bg-outline-info {
+    background-color: transparent;
+    border: 1px solid #0dcaf0;
+    color: #0dcaf0;
+  }
+
+  .bg-outline-light {
+    background-color: transparent;
+    border: 1px solid #f8f9fa;
+    color: #6c757d;
+  }
+
+  .bg-outline-dark {
+    background-color: transparent;
+    border: 1px solid #212529;
+    color: #212529;
+  }
+
+  /* Soft Badges */
+  .bg-soft-primary {
+    background-color: rgba(13, 110, 253, 0.1);
+    color: #0d6efd;
+  }
+
+  .bg-soft-secondary {
+    background-color: rgba(108, 117, 125, 0.1);
+    color: #6c757d;
+  }
+
+  .bg-soft-success {
+    background-color: rgba(25, 135, 84, 0.1);
+    color: #198754;
+  }
+
+  .bg-soft-danger {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+  }
+
+  .bg-soft-warning {
+    background-color: rgba(255, 193, 7, 0.1);
+    color: #ffc107;
+  }
+
+  .bg-soft-info {
+    background-color: rgba(13, 202, 240, 0.1);
+    color: #0dcaf0;
+  }
+
+  .bg-soft-light {
+    background-color: rgba(248, 249, 250, 0.1);
+    color: #6c757d;
+  }
+
+  .bg-soft-dark {
+    background-color: rgba(33, 37, 41, 0.1);
+    color: #212529;
+  }
+
+  /* Badge Sizes */
+  .badge-lg {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .badge-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .badge-xs {
+    padding: 0.125rem 0.375rem;
+    font-size: 0.625rem;
+  }
+
+  /* Dot Badge */
+  .badge-dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border-radius: 50%;
+    border: 2px solid white;
+  }
+</style>
+{% endblock %}

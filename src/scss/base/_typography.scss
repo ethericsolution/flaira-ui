@@ -1,0 +1,96 @@
+// Typography scale
+h1,
+.h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: $gray-900;
+  margin-bottom: 1rem;
+}
+
+h2,
+.h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: $gray-900;
+  margin-bottom: 0.75rem;
+}
+
+h3,
+.h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: $gray-800;
+  margin-bottom: 0.5rem;
+}
+
+h4,
+.h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: $gray-800;
+  margin-bottom: 0.5rem;
+}
+
+h5,
+.h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: $gray-800;
+  margin-bottom: 0.5rem;
+}
+
+h6,
+.h6 {
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: $gray-700;
+  margin-bottom: 0.5rem;
+}
+
+// Text utilities
+.text-xs {
+  font-size: 0.75rem;
+}
+
+.text-sm {
+  font-size: 0.8125rem;
+}
+
+.text-base {
+  font-size: 0.875rem;
+}
+
+.text-lg {
+  font-size: 1rem;
+}
+
+.text-xl {
+  font-size: 1.125rem;
+}
+
+// Font weights
+.fw-light {
+  font-weight: 300;
+}
+
+.fw-normal {
+  font-weight: 400;
+}
+
+.fw-medium {
+  font-weight: 500;
+}
+
+.fw-semibold {
+  font-weight: 600;
+}
+
+.fw-bold {
+  font-weight: 700;
+}

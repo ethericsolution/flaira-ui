@@ -1,0 +1,605 @@
+{% extends "layouts/base.njk" %} {% block title %}Tables{% endblock %} {% block
+content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div>
+    <h1 class="h2 fw-bold text-dark mb-2">Tables</h1>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item">
+          <a href="/" class="text-decoration-none">Home</a>
+        </li>
+        <li class="breadcrumb-item active text-muted" aria-current="page">
+          Tables
+        </li>
+      </ol>
+    </nav>
+  </div>
+  <div class="d-flex gap-2">
+    <button class="btn btn-outline-secondary">
+      <i class="bi bi-download me-2"></i>
+      Export
+    </button>
+    <button class="btn btn-primary">
+      <i class="bi bi-plus-circle me-2"></i>
+      Add New
+    </button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <!-- Basic Table -->
+    <div class="card shadow-sm mb-4">
+      <div class="card-header bg-white py-3">
+        <h5 class="card-title mb-0 fw-semibold text-dark">Basic Table</h5>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-hover mb-0">
+            <thead class="bg-light">
+              <tr>
+                <th
+                  scope="col"
+                  class="ps-4 fw-semibold text-muted text-uppercase small"
+                >
+                  Project
+                </th>
+                <th
+                  scope="col"
+                  class="fw-semibold text-muted text-uppercase small"
+                >
+                  Budget
+                </th>
+                <th
+                  scope="col"
+                  class="fw-semibold text-muted text-uppercase small"
+                >
+                  Status
+                </th>
+                <th
+                  scope="col"
+                  class="fw-semibold text-muted text-uppercase small"
+                >
+                  Users
+                </th>
+                <th
+                  scope="col"
+                  class="fw-semibold text-muted text-uppercase small"
+                >
+                  Completion
+                </th>
+                <th
+                  scope="col"
+                  class="text-end pe-4 fw-semibold text-muted text-uppercase small"
+                >
+                  Action
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="ps-4">
+                  <div class="d-flex align-items-center">
+                    <div class="bg-primary bg-opacity-10 rounded p-2 me-3">
+                      <i class="bi bi-laptop text-primary"></i>
+                    </div>
+                    <div>
+                      <div class="fw-semibold">Website Design</div>
+                      <small class="text-muted">UI/UX Design</small>
+                    </div>
+                  </div>
+                </td>
+                <td>$2,500</td>
+                <td>
+                  <span
+                    class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25"
+                  >
+                    <i class="bi bi-check-circle me-1"></i>
+                    Completed
+                  </span>
+                </td>
+                <td>
+                  <div class="avatar-group">
+                    <img
+                      src="https://placehold.co/32x32"
+                      class="rounded-circle border border-2 border-white"
+                      width="32"
+                      height="32"
+                      alt="User"
+                    />
+                    <img
+                      src="https://placehold.co/32x32"
+                      class="rounded-circle border border-2 border-white"
+                      width="32"
+                      height="32"
+                      alt="User"
+                    />
+                    <img
+                      src="https://placehold.co/32x32"
+                      class="rounded-circle border border-2 border-white"
+                      width="32"
+                      height="32"
+                      alt="User"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <div class="progress flex-grow-1 me-2" style="height: 6px">
+                      <div
+                        class="progress-bar bg-success"
+                        style="width: 100%"
+                      ></div>
+                    </div>
+                    <small class="text-muted">100%</small>
+                  </div>
+                </td>
+                <td class="text-end pe-4">
+                  <div class="dropdown">
+                    <button
+                      class="btn btn-sm btn-outline-secondary dropdown-toggle"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                    >
+                      Actions
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a class="dropdown-item" href="#"
+                          ><i class="bi bi-eye me-2"></i>View</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#"
+                          ><i class="bi bi-pencil me-2"></i>Edit</a
+                        >
+                      </li>
+                      <li><hr class="dropdown-divider" /></li>
+                      <li>
+                        <a class="dropdown-item text-danger" href="#"
+                          ><i class="bi bi-trash me-2"></i>Delete</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="ps-4">
+                  <div class="d-flex align-items-center">
+                    <div class="bg-warning bg-opacity-10 rounded p-2 me-3">
+                      <i class="bi bi-phone text-warning"></i>
+                    </div>
+                    <div>
+                      <div class="fw-semibold">Mobile App</div>
+                      <small class="text-muted">React Native</small>
+                    </div>
+                  </div>
+                </td>
+                <td>$5,000</td>
+                <td>
+                  <span
+                    class="badge bg-warning bg-opacity-10 text-warning border border-warning border-opacity-25"
+                  >
+                    <i class="bi bi-clock me-1"></i>
+                    In Progress
+                  </span>
+                </td>
+                <td>
+                  <div class="avatar-group">
+                    <img
+                      src="https://placehold.co/32x32"
+                      class="rounded-circle border border-2 border-white"
+                      width="32"
+                      height="32"
+                      alt="User"
+                    />
+                    <img
+                      src="https://placehold.co/32x32"
+                      class="rounded-circle border border-2 border-white"
+                      width="32"
+                      height="32"
+                      alt="User"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <div class="progress flex-grow-1 me-2" style="height: 6px">
+                      <div
+                        class="progress-bar bg-warning"
+                        style="width: 75%"
+                      ></div>
+                    </div>
+                    <small class="text-muted">75%</small>
+                  </div>
+                </td>
+                <td class="text-end pe-4">
+                  <div class="dropdown">
+                    <button
+                      class="btn btn-sm btn-outline-secondary dropdown-toggle"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                    >
+                      Actions
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a class="dropdown-item" href="#"
+                          ><i class="bi bi-eye me-2"></i>View</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#"
+                          ><i class="bi bi-pencil me-2"></i>Edit</a
+                        >
+                      </li>
+                      <li><hr class="dropdown-divider" /></li>
+                      <li>
+                        <a class="dropdown-item text-danger" href="#"
+                          ><i class="bi bi-trash me-2"></i>Delete</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="ps-4">
+                  <div class="d-flex align-items-center">
+                    <div class="bg-info bg-opacity-10 rounded p-2 me-3">
+                      <i class="bi bi-server text-info"></i>
+                    </div>
+                    <div>
+                      <div class="fw-semibold">Backend API</div>
+                      <small class="text-muted">Node.js Development</small>
+                    </div>
+                  </div>
+                </td>
+                <td>$3,200</td>
+                <td>
+                  <span
+                    class="badge bg-primary bg-opacity-10 text-primary border border-primary border-opacity-25"
+                  >
+                    <i class="bi bi-gear me-1"></i>
+                    On Hold
+                  </span>
+                </td>
+                <td>
+                  <div class="avatar-group">
+                    <img
+                      src="https://placehold.co/32x32"
+                      class="rounded-circle border border-2 border-white"
+                      width="32"
+                      height="32"
+                      alt="User"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <div class="progress flex-grow-1 me-2" style="height: 6px">
+                      <div
+                        class="progress-bar bg-info"
+                        style="width: 30%"
+                      ></div>
+                    </div>
+                    <small class="text-muted">30%</small>
+                  </div>
+                </td>
+                <td class="text-end pe-4">
+                  <div class="dropdown">
+                    <button
+                      class="btn btn-sm btn-outline-secondary dropdown-toggle"
+                      type="button"
+                      data-bs-toggle="dropdown"
+                    >
+                      Actions
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a class="dropdown-item" href="#"
+                          ><i class="bi bi-eye me-2"></i>View</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#"
+                          ><i class="bi bi-pencil me-2"></i>Edit</a
+                        >
+                      </li>
+                      <li><hr class="dropdown-divider" /></li>
+                      <li>
+                        <a class="dropdown-item text-danger" href="#"
+                          ><i class="bi bi-trash me-2"></i>Delete</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Users Table -->
+    <div class="card shadow-sm mb-4">
+      <div class="card-header bg-white py-3">
+        <h5 class="card-title mb-0 fw-semibold text-dark">Users Table</h5>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-hover mb-0">
+            <thead class="bg-light">
+              <tr>
+                <th
+                  scope="col"
+                  class="ps-4 fw-semibold text-muted text-uppercase small"
+                >
+                  User
+                </th>
+                <th
+                  scope="col"
+                  class="fw-semibold text-muted text-uppercase small"
+                >
+                  Email
+                </th>
+                <th
+                  scope="col"
+                  class="fw-semibold text-muted text-uppercase small"
+                >
+                  Role
+                </th>
+                <th
+                  scope="col"
+                  class="fw-semibold text-muted text-uppercase small"
+                >
+                  Status
+                </th>
+                <th
+                  scope="col"
+                  class="fw-semibold text-muted text-uppercase small"
+                >
+                  Last Active
+                </th>
+                <th
+                  scope="col"
+                  class="text-end pe-4 fw-semibold text-muted text-uppercase small"
+                >
+                  Action
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="ps-4">
+                  <div class="d-flex align-items-center">
+                    <img
+                      src="https://placehold.co/40x40"
+                      class="rounded-circle me-3"
+                      alt="User"
+                      width="40"
+                      height="40"
+                    />
+                    <div>
+                      <div class="fw-semibold">John Doe</div>
+                      <small class="text-muted">Administrator</small>
+                    </div>
+                  </div>
+                </td>
+                <td>john.doe@example.com</td>
+                <td>
+                  <span class="badge bg-primary bg-opacity-10 text-primary"
+                    >Admin</span
+                  >
+                </td>
+                <td>
+                  <span class="badge bg-success bg-opacity-10 text-success">
+                    <i class="bi bi-check-circle me-1"></i>
+                    Active
+                  </span>
+                </td>
+                <td>2 hours ago</td>
+                <td class="text-end pe-4">
+                  <button class="btn btn-sm btn-outline-primary me-1">
+                    <i class="bi bi-pencil"></i>
+                  </button>
+                  <button class="btn btn-sm btn-outline-danger">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td class="ps-4">
+                  <div class="d-flex align-items-center">
+                    <img
+                      src="https://placehold.co/40x40"
+                      class="rounded-circle me-3"
+                      alt="User"
+                      width="40"
+                      height="40"
+                    />
+                    <div>
+                      <div class="fw-semibold">Sarah Smith</div>
+                      <small class="text-muted">Editor</small>
+                    </div>
+                  </div>
+                </td>
+                <td>sarah.smith@example.com</td>
+                <td>
+                  <span class="badge bg-info bg-opacity-10 text-info"
+                    >Editor</span
+                  >
+                </td>
+                <td>
+                  <span class="badge bg-success bg-opacity-10 text-success">
+                    <i class="bi bi-check-circle me-1"></i>
+                    Active
+                  </span>
+                </td>
+                <td>1 day ago</td>
+                <td class="text-end pe-4">
+                  <button class="btn btn-sm btn-outline-primary me-1">
+                    <i class="bi bi-pencil"></i>
+                  </button>
+                  <button class="btn btn-sm btn-outline-danger">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td class="ps-4">
+                  <div class="d-flex align-items-center">
+                    <img
+                      src="https://placehold.co/40x40"
+                      class="rounded-circle me-3"
+                      alt="User"
+                      width="40"
+                      height="40"
+                    />
+                    <div>
+                      <div class="fw-semibold">Mike Johnson</div>
+                      <small class="text-muted">Viewer</small>
+                    </div>
+                  </div>
+                </td>
+                <td>mike.johnson@example.com</td>
+                <td>
+                  <span class="badge bg-secondary bg-opacity-10 text-secondary"
+                    >Viewer</span
+                  >
+                </td>
+                <td>
+                  <span class="badge bg-warning bg-opacity-10 text-warning">
+                    <i class="bi bi-clock me-1"></i>
+                    Pending
+                  </span>
+                </td>
+                <td>3 days ago</td>
+                <td class="text-end pe-4">
+                  <button class="btn btn-sm btn-outline-primary me-1">
+                    <i class="bi bi-pencil"></i>
+                  </button>
+                  <button class="btn btn-sm btn-outline-danger">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Orders Table -->
+    <div class="card shadow-sm">
+      <div class="card-header bg-white py-3">
+        <h5 class="card-title mb-0 fw-semibold text-dark">Recent Orders</h5>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-hover mb-0">
+            <thead class="bg-light">
+              <tr>
+                <th
+                  scope="col"
+                  class="ps-4 fw-semibold text-muted text-uppercase small"
+                >
+                  Order ID
+                </th>
+                <th
+                  scope="col"
+                  class="fw-semibold text-muted text-uppercase small"
+                >
+                  Customer
+                </th>
+                <th
+                  scope="col"
+                  class="fw-semibold text-muted text-uppercase small"
+                >
+                  Date
+                </th>
+                <th
+                  scope="col"
+                  class="fw-semibold text-muted text-uppercase small"
+                >
+                  Amount
+                </th>
+                <th
+                  scope="col"
+                  class="fw-semibold text-muted text-uppercase small"
+                >
+                  Status
+                </th>
+                <th
+                  scope="col"
+                  class="text-end pe-4 fw-semibold text-muted text-uppercase small"
+                >
+                  Action
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="fw-semibold ps-4">#ORD-7842</td>
+                <td>John Doe</td>
+                <td>Dec 12, 2023</td>
+                <td class="fw-semibold text-success">$245.99</td>
+                <td>
+                  <span
+                    class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25"
+                  >
+                    Completed
+                  </span>
+                </td>
+                <td class="text-end pe-4">
+                  <button class="btn btn-sm btn-outline-primary">
+                    View Details
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td class="fw-semibold ps-4">#ORD-7841</td>
+                <td>Sarah Smith</td>
+                <td>Dec 11, 2023</td>
+                <td class="fw-semibold text-primary">$189.50</td>
+                <td>
+                  <span
+                    class="badge bg-primary bg-opacity-10 text-primary border border-primary border-opacity-25"
+                  >
+                    Processing
+                  </span>
+                </td>
+                <td class="text-end pe-4">
+                  <button class="btn btn-sm btn-outline-primary">
+                    View Details
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td class="fw-semibold ps-4">#ORD-7840</td>
+                <td>Mike Johnson</td>
+                <td>Dec 10, 2023</td>
+                <td class="fw-semibold text-warning">$324.75</td>
+                <td>
+                  <span
+                    class="badge bg-warning bg-opacity-10 text-warning border border-warning border-opacity-25"
+                  >
+                    Pending
+                  </span>
+                </td>
+                <td class="text-end pe-4">
+                  <button class="btn btn-sm btn-outline-primary">
+                    View Details
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

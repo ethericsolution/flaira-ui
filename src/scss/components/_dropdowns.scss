@@ -1,0 +1,52 @@
+// Dropdown styles
+.dropdown-menu {
+  border: none;
+  box-shadow: $box-shadow-xl;
+  border-radius: $border-radius-lg;
+
+  .dropdown-header {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: $gray-700;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid $gray-200;
+  }
+
+  .dropdown-item {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    color: $gray-700;
+
+    &:hover {
+      background: $gray-100;
+      color: $gray-900;
+    }
+
+    &.active {
+      background: $primary;
+      color: $white;
+    }
+  }
+}
+
+// Dark mode dropdowns
+[data-bs-theme="dark"] {
+  .dropdown-menu {
+    background: $gray-800;
+    border: 1px solid $gray-700;
+
+    .dropdown-header {
+      color: $gray-300;
+      border-bottom-color: $gray-700;
+    }
+
+    .dropdown-item {
+      color: $gray-300;
+
+      &:hover {
+        background: $gray-700;
+        color: $white;
+      }
+    }
+  }
+}

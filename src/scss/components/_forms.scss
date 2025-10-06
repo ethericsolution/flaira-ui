@@ -1,0 +1,27 @@
+// Form styles
+.form-control {
+  border-radius: $border-radius;
+  border: 1px solid $gray-300;
+  font-size: 0.875rem;
+  padding: 0.5rem 0.75rem;
+
+  &:focus {
+    border-color: $primary;
+    box-shadow: 0 0 0 2px rgba($primary, 0.1);
+  }
+}
+
+.form-label {
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: $gray-700;
+  margin-bottom: 0.5rem;
+}
+
+.input-group {
+  .form-control {
+    &:focus {
+      z-index: 3;
+    }
+  }
+}

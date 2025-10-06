@@ -1,0 +1,785 @@
+{% extends "layouts/base.njk" %} {% block title %}Accordion{% endblock %} {%
+block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div>
+    <h1 class="h2 fw-bold text-dark mb-2">Accordion</h1>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb mb-0">
+        <li class="breadcrumb-item">
+          <a href="/" class="text-decoration-none">Home</a>
+        </li>
+        <li class="breadcrumb-item active text-muted" aria-current="page">
+          Accordion
+        </li>
+      </ol>
+    </nav>
+  </div>
+  <div class="d-flex gap-2">
+    <button class="btn btn-outline-secondary">
+      <i class="bi bi-code me-2"></i>
+      Show Code
+    </button>
+    <button class="btn btn-primary">
+      <i class="bi bi-download me-2"></i>
+      Export
+    </button>
+  </div>
+</div>
+
+<div class="row">
+  <!-- Basic Accordion -->
+  <div class="col-lg-6 mb-4">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-header bg-white border-0 py-3">
+        <h5 class="card-title mb-0 fw-semibold text-dark">Basic Accordion</h5>
+      </div>
+      <div class="card-body">
+        <div class="accordion" id="basicAccordion">
+          <div class="accordion-item border-0 mb-3">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button rounded"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#basicOne"
+                aria-expanded="true"
+              >
+                <i class="bi bi-info-circle me-2 text-primary"></i>
+                What is Raple Dashboard?
+              </button>
+            </h2>
+            <div
+              id="basicOne"
+              class="accordion-collapse collapse show"
+              data-bs-parent="#basicAccordion"
+            >
+              <div class="accordion-body">
+                Raple Dashboard is a modern admin dashboard template built with
+                Bootstrap 5. It provides a clean and intuitive interface for
+                managing your web applications with various components and
+                layouts.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item border-0 mb-3">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed rounded"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#basicTwo"
+              >
+                <i class="bi bi-gear me-2 text-success"></i>
+                How to customize the theme?
+              </button>
+            </h2>
+            <div
+              id="basicTwo"
+              class="accordion-collapse collapse"
+              data-bs-parent="#basicAccordion"
+            >
+              <div class="accordion-body">
+                You can customize the theme by modifying the SCSS variables or
+                using the built-in theme customization tools. The dashboard
+                supports light and dark modes with easy color scheme
+                adjustments.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item border-0">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed rounded"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#basicThree"
+              >
+                <i class="bi bi-shield-check me-2 text-warning"></i>
+                Is it regularly updated?
+              </button>
+            </h2>
+            <div
+              id="basicThree"
+              class="accordion-collapse collapse"
+              data-bs-parent="#basicAccordion"
+            >
+              <div class="accordion-body">
+                Yes, Raple Dashboard receives regular updates with new features,
+                components, and security patches. We maintain active development
+                to ensure compatibility with the latest Bootstrap version.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flush Accordion -->
+  <div class="col-lg-6 mb-4">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-header bg-white border-0 py-3">
+        <h5 class="card-title mb-0 fw-semibold text-dark">Flush Accordion</h5>
+      </div>
+      <div class="card-body p-0">
+        <div class="accordion accordion-flush" id="flushAccordion">
+          <div class="accordion-item border-bottom">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#flushOne"
+                aria-expanded="true"
+              >
+                Account Settings
+              </button>
+            </h2>
+            <div
+              id="flushOne"
+              class="accordion-collapse collapse show"
+              data-bs-parent="#flushAccordion"
+            >
+              <div class="accordion-body">
+                Manage your account preferences, privacy settings, and
+                notification preferences in this section.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item border-bottom">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#flushTwo"
+              >
+                Billing Information
+              </button>
+            </h2>
+            <div
+              id="flushTwo"
+              class="accordion-collapse collapse"
+              data-bs-parent="#flushAccordion"
+            >
+              <div class="accordion-body">
+                Update your payment methods, view billing history, and manage
+                subscription plans.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item border-bottom">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#flushThree"
+              >
+                Security Options
+              </button>
+            </h2>
+            <div
+              id="flushThree"
+              class="accordion-collapse collapse"
+              data-bs-parent="#flushAccordion"
+            >
+              <div class="accordion-body">
+                Configure two-factor authentication, password requirements, and
+                session management settings.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#flushFour"
+              >
+                API Access
+              </button>
+            </h2>
+            <div
+              id="flushFour"
+              class="accordion-collapse collapse"
+              data-bs-parent="#flushAccordion"
+            >
+              <div class="accordion-body">
+                Generate API keys, manage access tokens, and configure webhook
+                endpoints for integration.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <!-- Accordion with Icons -->
+  <div class="col-lg-6 mb-4">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-header bg-white border-0 py-3">
+        <h5 class="card-title mb-0 fw-semibold text-dark">
+          Accordion with Icons
+        </h5>
+      </div>
+      <div class="card-body">
+        <div class="accordion" id="iconAccordion">
+          <div class="accordion-item border-0 mb-3">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button rounded d-flex align-items-center"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#iconOne"
+                aria-expanded="true"
+              >
+                <div class="bg-primary bg-opacity-10 rounded p-2 me-3">
+                  <i class="bi bi-laptop text-primary"></i>
+                </div>
+                <div class="flex-grow-1 text-start">
+                  <div class="fw-semibold">Web Development</div>
+                  <small class="text-muted"
+                    >Frontend and backend development</small
+                  >
+                </div>
+                <i class="bi bi-chevron-down accordion-arrow text-muted"></i>
+              </button>
+            </h2>
+            <div
+              id="iconOne"
+              class="accordion-collapse collapse show"
+              data-bs-parent="#iconAccordion"
+            >
+              <div class="accordion-body">
+                <p>
+                  Modern web development using latest technologies including
+                  React, Vue.js, and Bootstrap 5. We focus on creating
+                  responsive, accessible, and performant web applications.
+                </p>
+                <ul class="mb-0">
+                  <li>Responsive design</li>
+                  <li>Cross-browser compatibility</li>
+                  <li>Performance optimization</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item border-0 mb-3">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed rounded d-flex align-items-center"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#iconTwo"
+              >
+                <div class="bg-success bg-opacity-10 rounded p-2 me-3">
+                  <i class="bi bi-phone text-success"></i>
+                </div>
+                <div class="flex-grow-1 text-start">
+                  <div class="fw-semibold">Mobile Development</div>
+                  <small class="text-muted">iOS and Android apps</small>
+                </div>
+                <i class="bi bi-chevron-down accordion-arrow text-muted"></i>
+              </button>
+            </h2>
+            <div
+              id="iconTwo"
+              class="accordion-collapse collapse"
+              data-bs-parent="#iconAccordion"
+            >
+              <div class="accordion-body">
+                <p>
+                  Native and cross-platform mobile application development for
+                  iOS and Android. We use React Native and Flutter for building
+                  high-quality mobile experiences.
+                </p>
+                <ul class="mb-0">
+                  <li>Native performance</li>
+                  <li>Cross-platform compatibility</li>
+                  <li>App store deployment</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item border-0">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed rounded d-flex align-items-center"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#iconThree"
+              >
+                <div class="bg-warning bg-opacity-10 rounded p-2 me-3">
+                  <i class="bi bi-server text-warning"></i>
+                </div>
+                <div class="flex-grow-1 text-start">
+                  <div class="fw-semibold">Backend Services</div>
+                  <small class="text-muted">API and database management</small>
+                </div>
+                <i class="bi bi-chevron-down accordion-arrow text-muted"></i>
+              </button>
+            </h2>
+            <div
+              id="iconThree"
+              class="accordion-collapse collapse"
+              data-bs-parent="#iconAccordion"
+            >
+              <div class="accordion-body">
+                <p>
+                  Robust backend development with Node.js, Python, and Java. We
+                  build scalable APIs, manage databases, and ensure secure data
+                  handling.
+                </p>
+                <ul class="mb-0">
+                  <li>RESTful API design</li>
+                  <li>Database optimization</li>
+                  <li>Security implementation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Colored Accordion -->
+  <div class="col-lg-6 mb-4">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-header bg-white border-0 py-3">
+        <h5 class="card-title mb-0 fw-semibold text-dark">Colored Accordion</h5>
+      </div>
+      <div class="card-body">
+        <div class="accordion" id="coloredAccordion">
+          <div class="accordion-item border-0 mb-3">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button accordion-primary rounded"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#colorOne"
+                aria-expanded="true"
+              >
+                <i class="bi bi-check-circle me-2"></i>
+                Primary Accordion
+              </button>
+            </h2>
+            <div
+              id="colorOne"
+              class="accordion-collapse collapse show"
+              data-bs-parent="#coloredAccordion"
+            >
+              <div class="accordion-body">
+                This accordion item uses the primary color scheme. Perfect for
+                highlighting important information or main features.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item border-0 mb-3">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button accordion-success collapsed rounded"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#colorTwo"
+              >
+                <i class="bi bi-check-lg me-2"></i>
+                Success Accordion
+              </button>
+            </h2>
+            <div
+              id="colorTwo"
+              class="accordion-collapse collapse"
+              data-bs-parent="#coloredAccordion"
+            >
+              <div class="accordion-body">
+                Success colored accordion ideal for confirmation messages,
+                completed tasks, or positive outcomes.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item border-0 mb-3">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button accordion-warning collapsed rounded"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#colorThree"
+              >
+                <i class="bi bi-exclamation-triangle me-2"></i>
+                Warning Accordion
+              </button>
+            </h2>
+            <div
+              id="colorThree"
+              class="accordion-collapse collapse"
+              data-bs-parent="#coloredAccordion"
+            >
+              <div class="accordion-body">
+                Warning colored accordion suitable for alerts, important
+                notices, or attention-required sections.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item border-0">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button accordion-danger collapsed rounded"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#colorFour"
+              >
+                <i class="bi bi-x-circle me-2"></i>
+                Danger Accordion
+              </button>
+            </h2>
+            <div
+              id="colorFour"
+              class="accordion-collapse collapse"
+              data-bs-parent="#coloredAccordion"
+            >
+              <div class="accordion-body">
+                Danger colored accordion perfect for error messages, critical
+                alerts, or destructive actions.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <!-- Always Open Accordion -->
+  <div class="col-lg-6 mb-4">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-header bg-white border-0 py-3">
+        <h5 class="card-title mb-0 fw-semibold text-dark">
+          Always Open Accordion
+        </h5>
+      </div>
+      <div class="card-body">
+        <div class="accordion" id="alwaysOpenAccordion">
+          <div class="accordion-item border-0 mb-3">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button rounded"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#alwaysOne"
+                aria-expanded="true"
+              >
+                Frequently Asked Questions
+              </button>
+            </h2>
+            <div id="alwaysOne" class="accordion-collapse collapse show">
+              <div class="accordion-body">
+                <strong>How do I get started?</strong><br />
+                Simply sign up for an account and follow the onboarding process.
+                You'll be up and running in minutes.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item border-0 mb-3">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed rounded"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#alwaysTwo"
+              >
+                Pricing Information
+              </button>
+            </h2>
+            <div id="alwaysTwo" class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <strong>What are the pricing plans?</strong><br />
+                We offer Starter, Professional, and Enterprise plans to fit
+                businesses of all sizes. All plans include core features with
+                varying limits.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item border-0">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed rounded"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#alwaysThree"
+              >
+                Support Options
+              </button>
+            </h2>
+            <div id="alwaysThree" class="accordion-collapse collapse">
+              <div class="accordion-body">
+                <strong>What support do you offer?</strong><br />
+                We provide email support for all users, with priority support
+                for Professional and Enterprise plans. Documentation and
+                community forums are available to all.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Advanced Accordion -->
+  <div class="col-lg-6 mb-4">
+    <div class="card border-0 shadow-sm h-100">
+      <div class="card-header bg-white border-0 py-3">
+        <h5 class="card-title mb-0 fw-semibold text-dark">
+          Advanced Accordion
+        </h5>
+      </div>
+      <div class="card-body">
+        <div class="accordion" id="advancedAccordion">
+          <div class="accordion-item border-0 mb-3">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button rounded d-flex justify-content-between align-items-center"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#advancedOne"
+                aria-expanded="true"
+              >
+                <span>
+                  <i class="bi bi-graph-up me-2 text-primary"></i>
+                  Analytics Dashboard
+                </span>
+                <span class="badge bg-primary">New</span>
+              </button>
+            </h2>
+            <div
+              id="advancedOne"
+              class="accordion-collapse collapse show"
+              data-bs-parent="#advancedAccordion"
+            >
+              <div class="accordion-body">
+                <div class="row">
+                  <div class="col-6">
+                    <div class="text-muted small">Page Views</div>
+                    <div class="h5 mb-0">12,458</div>
+                  </div>
+                  <div class="col-6">
+                    <div class="text-muted small">Conversion Rate</div>
+                    <div class="h5 mb-0">24.8%</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item border-0 mb-3">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed rounded d-flex justify-content-between align-items-center"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#advancedTwo"
+              >
+                <span>
+                  <i class="bi bi-people me-2 text-success"></i>
+                  User Management
+                </span>
+                <span class="badge bg-success">Active</span>
+              </button>
+            </h2>
+            <div
+              id="advancedTwo"
+              class="accordion-collapse collapse"
+              data-bs-parent="#advancedAccordion"
+            >
+              <div class="accordion-body">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-2"
+                >
+                  <span>Total Users</span>
+                  <strong>1,248</strong>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span>Active Now</span>
+                  <strong>156</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item border-0">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed rounded d-flex justify-content-between align-items-center"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#advancedThree"
+              >
+                <span>
+                  <i class="bi bi-bell me-2 text-warning"></i>
+                  Notifications
+                </span>
+                <span class="badge bg-warning">3 Unread</span>
+              </button>
+            </h2>
+            <div
+              id="advancedThree"
+              class="accordion-collapse collapse"
+              data-bs-parent="#advancedAccordion"
+            >
+              <div class="accordion-body">
+                <div
+                  class="alert alert-warning alert-dismissible fade show mb-2"
+                  role="alert"
+                >
+                  System maintenance scheduled
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                  ></button>
+                </div>
+                <div
+                  class="alert alert-info alert-dismissible fade show mb-0"
+                  role="alert"
+                >
+                  New feature available
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="alert"
+                  ></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Custom Accordion Styles */
+  .accordion-button {
+    font-weight: 600;
+    padding: 1rem 1.25rem;
+    box-shadow: none !important;
+  }
+
+  .accordion-button:not(.collapsed) {
+    color: #0d6efd;
+    background-color: rgba(13, 110, 253, 0.05);
+  }
+
+  .accordion-button:focus {
+    border-color: rgba(13, 110, 253, 0.25);
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+  }
+
+  .accordion-body {
+    padding: 1.25rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+  }
+
+  /* Icon Accordion Styles */
+  .accordion-arrow {
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .accordion-button:not(.collapsed) .accordion-arrow {
+    transform: rotate(180deg);
+  }
+
+  /* Colored Accordion Styles */
+  .accordion-primary:not(.collapsed) {
+    color: #0d6efd;
+    background-color: rgba(13, 110, 253, 0.1);
+    border-color: rgba(13, 110, 253, 0.2);
+  }
+
+  .accordion-success:not(.collapsed) {
+    color: #198754;
+    background-color: rgba(25, 135, 84, 0.1);
+    border-color: rgba(25, 135, 84, 0.2);
+  }
+
+  .accordion-warning:not(.collapsed) {
+    color: #ffc107;
+    background-color: rgba(255, 193, 7, 0.1);
+    border-color: rgba(255, 193, 7, 0.2);
+  }
+
+  .accordion-danger:not(.collapsed) {
+    color: #dc3545;
+    background-color: rgba(220, 53, 69, 0.1);
+    border-color: rgba(220, 53, 69, 0.2);
+  }
+
+  /* Flush Accordion Customization */
+  .accordion-flush .accordion-button {
+    border-radius: 0;
+    padding: 1rem 0;
+  }
+
+  .accordion-flush .accordion-body {
+    padding: 1rem 0;
+    border-top: none;
+  }
+
+  /* Enhanced spacing */
+  .accordion-item {
+    margin-bottom: 0.75rem;
+  }
+
+  .accordion-item:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Smooth transitions */
+  .accordion-collapse {
+    transition: all 0.3s ease-in-out;
+  }
+</style>
+
+<script>
+  // Custom accordion interactions
+  document.addEventListener("DOMContentLoaded", function () {
+    // Add smooth height transition
+    const accordions = document.querySelectorAll(".accordion-collapse");
+    accordions.forEach((accordion) => {
+      accordion.addEventListener("show.bs.collapse", function () {
+        this.style.height = this.scrollHeight + "px";
+      });
+
+      accordion.addEventListener("shown.bs.collapse", function () {
+        this.style.height = "auto";
+      });
+
+      accordion.addEventListener("hide.bs.collapse", function () {
+        this.style.height = this.scrollHeight + "px";
+        setTimeout(() => {
+          this.style.height = "0px";
+        }, 50);
+      });
+    });
+  });
+</script>
+{% endblock %}

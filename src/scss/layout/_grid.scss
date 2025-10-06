@@ -1,0 +1,35 @@
+// Custom grid utilities
+.grid-gap-0 {
+  gap: 0 !important;
+}
+
+.grid-gap-1 {
+  gap: 0.25rem !important;
+}
+
+.grid-gap-2 {
+  gap: 0.5rem !important;
+}
+
+.grid-gap-3 {
+  gap: 1rem !important;
+}
+
+.grid-gap-4 {
+  gap: 1.5rem !important;
+}
+
+.grid-gap-5 {
+  gap: 3rem !important;
+}
+
+// Custom container widths
+.container-tight {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.container-narrow {
+  max-width: 600px;
+  margin: 0 auto;
+}

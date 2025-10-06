@@ -1,0 +1,69 @@
+// Color functions
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+// Contrast color function
+@function contrast-color($color, $dark: $dark, $light: $light) {
+  @if (lightness($color) > 60) {
+    @return $dark;
+  }
+
+  @else {
+    @return $light;
+  }
+}
+
+// REM conversion
+@function rem($pixels, $context: 16) {
+  @return calc($pixels / $context) * 1rem;
+}
+
+// EM conversion
+@function em($pixels, $context: 16) {
+  @return calc($pixels / $context) * 1em;
+}
+
+// Z-index scale
+@function z($layer) {
+  $z-layers: (
+    "dropdown": 1000,
+    "sticky": 1020,
+    "fixed": 1030,
+    "modal-backdrop": 1040,
+    "modal": 1050,
+    "popover": 1060,
+    "tooltip": 1070,
+    "toast": 1080
+  );
+
+@return map-get($z-layers, $layer);
+}
+
+// Get color from map with fallback
+@function color($key, $map: $colors) {
+  @if map-has-key($map, $key) {
+    @return map-get($map, $key);
+  }
+
+  @warn "Unknown `#{$key}` in `#{$map}`";
+  @return null;
+}
+
+// Responsive breakpoint function
+@function breakpoint($name) {
+  $breakpoints: (
+    "xs": 0,
+    "sm": 576px,
+    "md": 768px,
+    "lg": 992px,
+    "xl": 1200px,
+    "xxl": 1400px
+  );
+
+@return map-get($breakpoints, $name);
+}
