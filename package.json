@@ -1,5 +1,5 @@
 {
-  "name": "my-bootstrap-admin",
+  "name": "flaira-ui",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Etheric Solution",
+  "authorEmail": "ethericsolution@gmail.com",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {

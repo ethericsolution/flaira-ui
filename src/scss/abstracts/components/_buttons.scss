@@ -1,0 +1,87 @@
+// _buttons.scss
+// Button styles
+
+// Button sizes
+$btn-padding-y-xs: 0.25rem;
+$btn-padding-x-xs: 0.5rem;
+$btn-font-size-xs: 0.75rem;
+$btn-border-radius-xs: 0.25rem;
+
+$btn-icon-size: 2.5rem;
+
+// Button size mixin
+@mixin button-size($padding-y, $padding-x, $font-size, $border-radius) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+  border-radius: $border-radius;
+}
+
+// Icon button mixin
+@mixin icon-button($size) {
+  width: $size;
+  height: $size;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Ghost button mixin
+@mixin ghost-button($color) {
+  background-color: transparent !important;
+  border: 1px solid transparent !important;
+  color: $color !important;
+
+  &:hover {
+    background-color: rgba($color, 0.1);
+    border-color: rgba($color, 0.2);
+  }
+}
+
+// Base button styles
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid transparent;
+  transition: all 0.15s ease-in-out;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+// Button sizes
+.btn-xs {
+  @include button-size($btn-padding-y-xs, $btn-padding-x-xs, $btn-font-size-xs, $btn-border-radius-xs);
+}
+
+// Icon buttons
+.btn-icon {
+  @include icon-button($btn-icon-size);
+}
+
+// Ghost button variants
+$ghost-colors: (
+  primary: $primary,
+  secondary: $secondary,
+  success: $success,
+  danger: $danger,
+  warning: $warning,
+  info: $info
+);
+
+@each $name, $color in $ghost-colors {
+  .btn-ghost-#{$name} {
+    @include ghost-button($color);
+  }
+}

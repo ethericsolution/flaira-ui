@@ -1,0 +1,128 @@
+// _alerts.scss
+// Custom alert styles
+
+// Alert variables
+$alert-padding-y-sm: 0.5rem;
+$alert-padding-x-sm: 0.75rem;
+$alert-font-size-sm: 0.875rem;
+
+$alert-padding-y-lg: 1rem;
+$alert-padding-x-lg: 1.25rem;
+$alert-font-size-lg: 1.125rem;
+
+$alert-padding-y-xl: 1.5rem;
+$alert-padding-x-xl: 1.5rem;
+$alert-font-size-xl: 1.25rem;
+
+$alert-icon-size: 2.5rem;
+$alert-icon-gap: 1rem;
+
+// Alert mixins
+@mixin alert-outline-variant($color) {
+  background-color: transparent;
+  border: 1px solid $color !important;
+  color: $color !important;
+}
+
+@mixin alert-solid-variant($color) {
+  background-color: $color;
+  border-color: $color;
+  // color: color-contrast($color);
+  color: $color !important;
+}
+
+@mixin alert-icon-variant($color) {
+  .alert-icon-wrapper {
+    background-color: rgba($color, 0.1);
+    color: $color;
+  }
+}
+
+@mixin alert-size($padding-y, $padding-x, $font-size) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+}
+
+// Alert variants
+$alert-variants: (
+  primary: $primary,
+  secondary: $secondary,
+  success: $success,
+  danger: $danger,
+  warning: $warning,
+  info: $info
+);
+
+// Outline alerts
+@each $name, $color in $alert-variants {
+  .alert-outline-#{$name} {
+    @include alert-outline-variant($color);
+  }
+}
+
+// Solid alerts
+@each $name, $color in $alert-variants {
+  .alert-solid-#{$name} {
+    @include alert-solid-variant($color);
+  }
+}
+
+// Alert sizes
+.alert-sm {
+  @include alert-size($alert-padding-y-sm, $alert-padding-x-sm, $alert-font-size-sm);
+}
+
+.alert-lg {
+  @include alert-size($alert-padding-y-lg, $alert-padding-x-lg, $alert-font-size-lg);
+}
+
+.alert-xl {
+  @include alert-size($alert-padding-y-xl, $alert-padding-x-xl, $alert-font-size-xl);
+}
+
+// Icon alerts
+.alert-icon {
+  display: flex;
+  align-items: flex-start;
+  gap: $alert-icon-gap;
+  padding: $alert-padding-y-lg $alert-padding-x-lg;
+
+  .alert-icon-wrapper {
+    width: $alert-icon-size;
+    height: $alert-icon-size;
+    border-radius: $border-radius;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .alert-content {
+    flex: 1;
+  }
+}
+
+// Icon alert variants
+@each $name, $color in $alert-variants {
+  .alert-icon.alert-#{$name} {
+    @include alert-icon-variant($color);
+  }
+}
+
+// Base alert enhancements
+.alert {
+  border-radius: $border-radius-lg;
+  border: 1px solid transparent;
+}
+
+.alert-dismissible .btn-close {
+  padding: 0.75rem 0.75rem;
+}
+
+// Custom close button for solid alerts
+.alert-solid-primary .btn-close,
+.alert-solid-secondary .btn-close,
+.alert-solid-success .btn-close,
+.alert-solid-danger .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}

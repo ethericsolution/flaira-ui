@@ -1,0 +1,21 @@
+// _cards.scss
+// Only custom card variables - Bootstrap handles the rest
+
+// Using Bootstrap's card Sass variables
+$card-spacer-y: #{$spacer};
+$card-spacer-x: #{$spacer};
+$card-title-spacer-y: #{$spacer * 0.5};
+$card-border-width: 0;
+$card-border-color: #{$gray-300};
+$card-border-radius: #{$border-radius-xl};
+$card-box-shadow: #{$box-shadow-xl};
+$card-inner-border-radius: #{$border-radius-xl};
+$card-cap-padding-y: #{$spacer};
+$card-cap-padding-x: #{$spacer};
+$card-cap-bg: transparent;
+$card-cap-color: null;
+$card-height: null;
+$card-color: null;
+$card-bg: #{$white};
+
+// No additional CSS needed - Bootstrap components will use these variables

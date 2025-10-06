@@ -1,5 +1,5 @@
 // Colors
-$primary: #4f46e5;
+$primary: #6d28d9;
 $secondary: #64748b;
 $success: #10b981;
 $info: #06b6d4;
@@ -25,6 +25,8 @@ $gray-900: #0f172a;
 $font-family-base: "Inter", system-ui, -apple-system, sans-serif;
 $font-size-base: 0.875rem;
 $line-height-base: 1.5;
+
+$zindex-dropdown: 1000 !default;
 
 // Spacing
 $spacer: 1rem;
@@ -59,12 +61,15 @@ $sidebar-header-height: 64px;
 $header-height: 120px;
 
 // Tables
+$table-head-bg: #{$gray-50} !important;
 $table-hover-bg: $gray-50;
 $table-cell-vertical-align: middle;
 
-// Cards
-$card-title-color: $gray-800;
-$card-border-width: 0;
-$card-border-color: $gray-500;
-$card-border-radius: $border-radius-xl;
-$card-box-shadow: $box-shadow-xl;
+@import "components/cards";
+@import "components/buttons";
+@import "components/badges";
+
+@import "components/checkboxes";
+@import "components/pagination";
+@import "components/alerts";
+@import "components/forms";

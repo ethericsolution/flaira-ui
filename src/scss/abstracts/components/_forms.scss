@@ -1,0 +1,124 @@
+// _forms.scss
+// Custom form input styles
+
+// Form variables
+$input-outline-border-width: 2px;
+$input-underline-border-width: 2px;
+$input-filled-bg: #f8f9fa;
+// $input-focus-shadow: 0 0 0 0.2rem rgba($primary, 0.1);
+$input-focus-shadow: none !important;
+$input-border-width: 1.75px;
+
+// Form mixins
+@mixin input-variant($background, $border, $focus-bg: null, $focus-border: $primary) {
+  background-color: $background;
+  border: $border;
+
+  &:focus {
+    background-color: if($focus-bg, $focus-bg, $background);
+    border-color: $focus-border;
+    box-shadow: $input-focus-shadow;
+  }
+}
+
+@mixin input-outline() {
+  @include input-variant(transparent, $input-outline-border-width solid $gray-300, $white);
+}
+
+@mixin input-filled() {
+  @include input-variant($input-filled-bg, 1px solid $input-filled-bg, $white);
+}
+
+@mixin input-underline() {
+  @include input-variant(transparent, none, transparent, $primary);
+  border: none !important;
+  border-bottom: $input-underline-border-width solid $gray-300 !important;
+  border-radius: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+
+  &:focus {
+    box-shadow: none;
+    border-bottom-color: $primary !important;
+  }
+}
+
+// Input variants
+.form-control-outline {
+  @include input-outline();
+}
+
+.form-control-filled {
+  @include input-filled();
+}
+
+.form-control-underline {
+  @include input-underline();
+}
+
+// Select variants
+.form-select-outline {
+  @include input-outline();
+}
+
+.form-select-filled {
+  @include input-filled();
+}
+
+// Enhanced input groups
+.input-group-text {
+  background-color: $input-filled-bg;
+  border-color: $gray-300;
+  color: $gray-600;
+}
+
+.input-group .form-control:focus {
+  z-index: 3;
+}
+
+// Update select option z-index
+.form-select {
+  option {
+    z-index: 9999; // Updated z-index for options
+  }
+}
+
+// Custom focus states
+.form-control:focus,
+.form-select:focus {
+  border-color: $primary;
+  box-shadow: $input-focus-shadow;
+}
+
+// Improved spacing
+.form-label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: $gray-700;
+}
+
+.form-text {
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+// Floating label enhancements
+.form-floating {
+
+  >.form-control:focus~label,
+  >.form-control:not(:placeholder-shown)~label,
+  >.form-select~label {
+    color: $gray-600;
+    font-weight: 500;
+  }
+}
+
+// Character counter
+#charCounter {
+  padding-bottom: 2rem;
+}
+
+// Password strength
+.password-strength .progress-bar {
+  transition: width 0.3s ease;
+}

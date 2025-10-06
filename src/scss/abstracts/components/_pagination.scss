@@ -1,0 +1,136 @@
+// _pagination.scss
+// Custom pagination styles with mixins
+
+// Pagination variables
+$pagination-rounded-size: 2.5rem;
+$pagination-spacing: 0.25rem;
+
+// Pagination mixins
+@mixin pagination-variant($color) {
+  .page-item.active .page-link {
+    background-color: $color;
+    border-color: $color;
+    color: $white;
+  }
+}
+
+@mixin pagination-ghost-variant($color) {
+  .page-link {
+    background-color: transparent;
+    border: 1px solid transparent;
+    color: $gray-600 !important;
+
+    &:hover {
+      background-color: rgba($color, 0.1);
+      border-color: rgba($color, 0.2);
+      color: $color !important;
+    }
+  }
+
+  .page-item.active .page-link {
+    background-color: rgba($color, 0.1) !important;
+    border-color: rgba($color, 0.2) !important;
+    color: $color !important;
+    font-weight: 600;
+  }
+}
+
+@mixin pagination-outline-variant($color) {
+  .page-link {
+    background-color: transparent;
+    border: 1px solid $gray-300;
+    color: $gray-600 !important;
+
+    &:hover {
+      background-color: $gray-100 !important;
+      border-color: $color !important;
+      color: $color !important;
+    }
+  }
+
+  .page-item.active .page-link {
+    background-color: $color;
+    border-color: $color;
+    color: $white;
+  }
+}
+
+@mixin pagination-rounded() {
+  .page-link {
+    border-radius: 50% !important;
+    width: $pagination-rounded-size;
+    height: $pagination-rounded-size;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 $pagination-spacing;
+  }
+}
+
+// Rounded pagination
+.pagination-rounded {
+  @include pagination-rounded();
+}
+
+// Outline pagination
+.pagination-outline {
+  @include pagination-outline-variant($primary);
+}
+
+// Ghost pagination
+.pagination-ghost {
+  @include pagination-ghost-variant($primary);
+}
+
+// Color variants
+.pagination-primary {
+  @include pagination-variant($primary);
+}
+
+.pagination-success {
+  @include pagination-variant($success);
+}
+
+.pagination-danger {
+  @include pagination-variant($danger);
+}
+
+// Outline color variants
+.pagination-outline-primary {
+  @include pagination-outline-variant($primary);
+}
+
+.pagination-outline-success {
+  @include pagination-outline-variant($success);
+}
+
+.pagination-outline-danger {
+  @include pagination-outline-variant($danger);
+}
+
+// Ghost color variants
+.pagination-ghost-primary {
+  @include pagination-ghost-variant($primary);
+}
+
+.pagination-ghost-success {
+  @include pagination-ghost-variant($success);
+}
+
+.pagination-ghost-danger {
+  @include pagination-ghost-variant($danger);
+}
+
+// Base pagination enhancements
+.pagination {
+  gap: $pagination-spacing;
+
+  .page-item.active .page-link {
+    font-weight: 600;
+  }
+
+  .page-link {
+    border-radius: $border-radius;
+    font-weight: 500;
+  }
+}
