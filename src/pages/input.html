@@ -556,7 +556,7 @@ content %}
         </div>
 
         <div class="row mt-4">
-          <div class="col-lg-6">
+          <div class="col-lg-4">
             <label class="form-label">Toggle Password Visibility</label>
             <div class="input-group">
               <input
@@ -566,7 +566,7 @@ content %}
                 id="togglePassword"
               />
               <button
-                class="btn btn-outline-secondary"
+                class="btn btn-outline-secondary toggle-password"
                 type="button"
                 id="togglePasswordBtn"
               >
@@ -575,7 +575,26 @@ content %}
             </div>
           </div>
 
-          <div class="col-lg-6">
+          <div class="col-lg-4">
+            <label class="form-label">Toggle Password Visibility</label>
+            <div class="position-relative">
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Enter password"
+                id="togglePassword"
+              />
+              <button
+                class="btn btn-ghost-primary toggle-password position-absolute top-50 end-0 translate-middle-y"
+                type="button"
+                id="togglePasswordBtn"
+              >
+                <i class="bi bi-eye"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
             <label class="form-label">Input with Loading State</label>
             <div class="position-relative">
               <input
@@ -653,23 +672,21 @@ content %}
       });
     }
 
-    // Toggle Password Visibility
-    const togglePassword = document.getElementById("togglePassword");
-    const togglePasswordBtn = document.getElementById("togglePasswordBtn");
+    // For multiple toggle password buttons
+    document.querySelectorAll(".toggle-password").forEach((button) => {
+      button.addEventListener("click", function () {
+        const input = this.parentElement.querySelector(
+          'input[type="password"], input[type="text"]'
+        );
+        const icon = this.querySelector("i");
 
-    if (togglePassword && togglePasswordBtn) {
-      togglePasswordBtn.addEventListener("click", function () {
-        const type =
-          togglePassword.getAttribute("type") === "password"
-            ? "text"
-            : "password";
-        togglePassword.setAttribute("type", type);
-        this.innerHTML =
-          type === "password"
-            ? '<i class="bi bi-eye"></i>'
-            : '<i class="bi bi-eye-slash"></i>';
+        const isPassword = input.type === "password";
+        input.type = isPassword ? "text" : "password";
+
+        // Toggle classes
+        icon.classList.toggle("bi-eye-slash");
       });
-    }
+    });
 
     // Search Loading State
     const searchInput = document.getElementById("searchInput");

@@ -12,6 +12,10 @@ $form-switch-width-xs: 1.5rem;
 $card-checkbox-padding: 1rem;
 $card-checkbox-indicator-position: 3rem;
 
+$form-check-input-focus-box-shadow: none !default;
+
+$form-check-input-width: 1.5rem;
+
 // Form check color mixin
 @mixin form-check-color($color) {
   &:checked {
