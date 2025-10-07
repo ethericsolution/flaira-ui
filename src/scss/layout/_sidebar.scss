@@ -40,7 +40,7 @@
   @include custom-scrollbar;
 
   .sidebar-header {
-    height: var(--sidebar-header-height);
+    min-height: var(--sidebar-header-height);
     @include flex-between;
     padding: 0 1rem;
     border-bottom: 1px solid $gray-100;
