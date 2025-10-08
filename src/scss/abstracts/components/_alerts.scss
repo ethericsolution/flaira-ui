@@ -25,10 +25,9 @@ $alert-icon-gap: 1rem;
 }
 
 @mixin alert-solid-variant($color) {
-  background-color: $color;
-  border-color: $color;
-  // color: color-contrast($color);
-  color: $color !important;
+  background-color: $color !important;
+  border-color: $color !important;
+  color: color-contrast($color) !important;
 }
 
 @mixin alert-icon-variant($color) {
@@ -43,27 +42,22 @@ $alert-icon-gap: 1rem;
   font-size: $font-size;
 }
 
-// Alert variants
-$alert-variants: (
-  primary: $primary,
-  secondary: $secondary,
-  success: $success,
-  danger: $danger,
-  warning: $warning,
-  info: $info
-);
+// Generate all alert variants in one loop
+@each $name, $color in $theme-colors {
 
-// Outline alerts
-@each $name, $color in $alert-variants {
+  // Outline alerts
   .alert-outline-#{$name} {
     @include alert-outline-variant($color);
   }
-}
 
-// Solid alerts
-@each $name, $color in $alert-variants {
+  // Solid alerts  
   .alert-solid-#{$name} {
     @include alert-solid-variant($color);
+  }
+
+  // Icon alert variants
+  .alert-icon.alert-#{$name} {
+    @include alert-icon-variant($color);
   }
 }
 
@@ -99,13 +93,6 @@ $alert-variants: (
 
   .alert-content {
     flex: 1;
-  }
-}
-
-// Icon alert variants
-@each $name, $color in $alert-variants {
-  .alert-icon.alert-#{$name} {
-    @include alert-icon-variant($color);
   }
 }
 

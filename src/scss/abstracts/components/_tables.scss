@@ -1,0 +1,170 @@
+// Custom table styles
+
+// Table variables using Bootstrap scale
+$table-head-bg: map-get($custom-colors, "gray-50");
+$table-hover-bg: map-get($custom-colors, "gray-50");
+$table-striped-bg: map-get($custom-colors, "gray-50");
+$table-cell-vertical-align: middle;
+$table-border-width: 1px;
+$table-border-color: map-get($custom-colors, "gray-200");
+
+// Table mixins
+@mixin table-variant($color) {
+  --#{$variable-prefix}table-bg: #{rgba($color, 0.05)};
+  --#{$variable-prefix}table-striped-bg: #{rgba($color, 0.05)};
+  --#{$variable-prefix}table-striped-color: #{color-contrast(rgba($color, 0.05))};
+  --#{$variable-prefix}table-active-bg: #{rgba($color, 0.1)};
+  --#{$variable-prefix}table-hover-bg: #{rgba($color, 0.075)};
+
+  border-color: rgba($color, 0.2);
+
+  th {
+    background-color: rgba($color, 0.1);
+    color: $color;
+    border-color: rgba($color, 0.2);
+  }
+}
+
+@mixin table-border-variant($color) {
+  border: 2px solid $color;
+
+  th {
+    background-color: $color;
+    color: color-contrast($color);
+    border-color: $color;
+  }
+}
+
+@mixin table-size($padding-y, $padding-x, $font-size) {
+
+  th,
+  td {
+    padding: $padding-y $padding-x;
+    font-size: $font-size;
+  }
+}
+
+@mixin table-hover-variant() {
+  tbody tr {
+    transition: all 0.2s ease;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: $box-shadow-sm;
+    }
+  }
+}
+
+// Table sizes
+.table {
+
+  // Small table
+  &.table-sm {
+    @include table-size(0.5rem, 0.75rem, $font-size-sm);
+  }
+
+  // Large table
+  &.table-lg {
+    @include table-size(1rem, 1.25rem, $font-size-lg);
+  }
+
+  // Extra large table
+  &.table-xl {
+    @include table-size(1.25rem, 1.5rem, $font-size-lg);
+  }
+
+  // Hover table
+  &.table-hover-animate {
+    @include table-hover-variant();
+  }
+}
+
+// Generate all table color variants in one loop
+@each $name, $color in $theme-colors {
+  .table-#{$name} {
+    @include table-variant($color);
+  }
+}
+
+// Generate all table border variants in one loop
+@each $name, $color in $theme-colors {
+  .table-border-#{$name} {
+    @include table-border-variant($color);
+  }
+}
+
+// Base table enhancements
+.table {
+  vertical-align: $table-cell-vertical-align;
+  border-color: $table-border-color;
+
+  // Improved header styling
+  th {
+    background-color: $table-head-bg;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: $font-size-sm;
+    border-bottom: $table-border-width * 2 solid $table-border-color;
+  }
+
+  // Improved hover effects
+  &.table-hover {
+    tbody tr:hover {
+      background-color: $table-hover-bg !important;
+    }
+  }
+
+  // Striped improvements
+  &.table-striped {
+    tbody tr:nth-of-type(#{$table-striped-order}) {
+      background-color: $table-striped-bg;
+    }
+  }
+
+  // Bordered improvements
+  &.table-bordered {
+    border: $table-border-width solid $table-border-color;
+
+    th,
+    td {
+      border: $table-border-width solid $table-border-color;
+    }
+  }
+
+  // Borderless improvements
+  &.table-borderless {
+
+    th,
+    td,
+    thead th,
+    tbody+tbody {
+      border: 0;
+    }
+  }
+}
+
+// Table responsive enhancements
+.table-responsive {
+  .table {
+    margin-bottom: 0;
+
+    th,
+    td {
+      white-space: nowrap;
+    }
+  }
+}
+
+// Responsive tables
+@include media-breakpoint-down(md) {
+
+  .table-lg,
+  .table-xl {
+    @include table-size(0.75rem, 1rem, $font-size-base);
+  }
+
+  .table-responsive {
+    font-size: $font-size-sm;
+  }
+}

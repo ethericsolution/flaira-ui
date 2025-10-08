@@ -1,57 +1,88 @@
-// _pagination.scss
-// Custom pagination styles with mixins
+// Custom pagination styles using Bootstrap variables
 
 // Pagination variables
 $pagination-rounded-size: 2.5rem;
-$pagination-spacing: 0.25rem;
+$pagination-spacing: $spacer * 0.25;
+$pagination-border-width: 1px;
+
+// Pagination size variables
+$pagination-size-sm: 2rem;
+$pagination-size-lg: 3rem;
+$pagination-size-xl: 3.5rem;
 
 // Pagination mixins
 @mixin pagination-variant($color) {
-  .page-item.active .page-link {
-    background-color: $color;
-    border-color: $color;
-    color: $white;
+  .page-item {
+    &.active .page-link {
+      background-color: $color;
+      border-color: $color;
+      color: color-contrast($color);
+    }
+
+    &.disabled .page-link {
+      background-color: $pagination-disabled-bg;
+      border-color: $pagination-disabled-border-color;
+      color: $pagination-disabled-color;
+    }
   }
 }
 
 @mixin pagination-ghost-variant($color) {
   .page-link {
     background-color: transparent;
-    border: 1px solid transparent;
-    color: $gray-600 !important;
+    border: $pagination-border-width solid transparent;
+    color: $gray-600;
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: rgba($color, 0.1);
       border-color: rgba($color, 0.2);
-      color: $color !important;
+      color: $color;
     }
   }
 
-  .page-item.active .page-link {
-    background-color: rgba($color, 0.1) !important;
-    border-color: rgba($color, 0.2) !important;
-    color: $color !important;
-    font-weight: 600;
+  .page-item {
+    &.active .page-link {
+      background-color: rgba($color, 0.1);
+      border-color: rgba($color, 0.2);
+      color: $color;
+      font-weight: $font-weight-semibold;
+    }
+
+    &.disabled .page-link {
+      background-color: transparent;
+      border-color: transparent;
+      color: $pagination-disabled-color;
+    }
   }
 }
 
 @mixin pagination-outline-variant($color) {
   .page-link {
     background-color: transparent;
-    border: 1px solid $gray-300;
-    color: $gray-600 !important;
+    border: $pagination-border-width solid $gray-300;
+    color: $gray-600;
 
-    &:hover {
-      background-color: $gray-100 !important;
-      border-color: $color !important;
-      color: $color !important;
+    &:hover,
+    &:focus {
+      background-color: $gray-100;
+      border-color: $color;
+      color: $color;
     }
   }
 
-  .page-item.active .page-link {
-    background-color: $color;
-    border-color: $color;
-    color: $white;
+  .page-item {
+    &.active .page-link {
+      background-color: $color;
+      border-color: $color;
+      color: color-contrast($color);
+    }
+
+    &.disabled .page-link {
+      background-color: transparent;
+      border-color: $gray-300;
+      color: $pagination-disabled-color;
+    }
   }
 }
 
@@ -67,70 +98,154 @@ $pagination-spacing: 0.25rem;
   }
 }
 
+@mixin pagination-size($size) {
+  .page-link {
+    width: $size;
+    height: $size;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: map-get($font-sizes, sm);
+  }
+}
+
+// Generate all pagination variants in one loop
+@each $name, $color in $theme-colors {
+
+  // Solid variants
+  .pagination-#{$name} {
+    @include pagination-variant($color);
+  }
+
+  // Outline variants
+  .pagination-outline-#{$name} {
+    @include pagination-outline-variant($color);
+  }
+
+  // Ghost variants
+  .pagination-ghost-#{$name} {
+    @include pagination-ghost-variant($color);
+  }
+}
+
+// Pagination sizes
+.pagination-sm {
+  @include pagination-size($pagination-size-sm);
+}
+
+.pagination-lg {
+  @include pagination-size($pagination-size-lg);
+}
+
+.pagination-xl {
+  @include pagination-size($pagination-size-xl);
+
+  .page-link {
+    font-size: $font-size-base;
+  }
+}
+
 // Rounded pagination
 .pagination-rounded {
   @include pagination-rounded();
-}
 
-// Outline pagination
-.pagination-outline {
-  @include pagination-outline-variant($primary);
-}
+  // Rounded sizes
+  &.pagination-sm {
+    .page-link {
+      width: $pagination-size-sm;
+      height: $pagination-size-sm;
+    }
+  }
 
-// Ghost pagination
-.pagination-ghost {
-  @include pagination-ghost-variant($primary);
-}
+  &.pagination-lg {
+    .page-link {
+      width: $pagination-size-lg;
+      height: $pagination-size-lg;
+    }
+  }
 
-// Color variants
-.pagination-primary {
-  @include pagination-variant($primary);
-}
-
-.pagination-success {
-  @include pagination-variant($success);
-}
-
-.pagination-danger {
-  @include pagination-variant($danger);
-}
-
-// Outline color variants
-.pagination-outline-primary {
-  @include pagination-outline-variant($primary);
-}
-
-.pagination-outline-success {
-  @include pagination-outline-variant($success);
-}
-
-.pagination-outline-danger {
-  @include pagination-outline-variant($danger);
-}
-
-// Ghost color variants
-.pagination-ghost-primary {
-  @include pagination-ghost-variant($primary);
-}
-
-.pagination-ghost-success {
-  @include pagination-ghost-variant($success);
-}
-
-.pagination-ghost-danger {
-  @include pagination-ghost-variant($danger);
+  &.pagination-xl {
+    .page-link {
+      width: $pagination-size-xl;
+      height: $pagination-size-xl;
+    }
+  }
 }
 
 // Base pagination enhancements
 .pagination {
   gap: $pagination-spacing;
 
-  .page-item.active .page-link {
-    font-weight: 600;
+  .page-item {
+    &.active .page-link {
+      font-weight: $font-weight-semibold;
+    }
+
+    &.disabled .page-link {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
   }
 
   .page-link {
     border-radius: $border-radius;
-    font-weight: 500;
+    font-weight: $font-weight-medium;
+    transition: all 0.2s ease-in-out;
+    border: $pagination-border-width solid $pagination-border-color;
+
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba($primary, 0.1);
+    }
+
+    // Removed the transform movement on hover
+  }
+}
+
+// Pagination alignment
+.pagination-justified {
+  justify-content: space-between;
+
+  .page-item {
+    flex: 1;
+
+    .page-link {
+      justify-content: center;
+    }
+  }
+}
+
+.pagination-center {
+  justify-content: center;
+}
+
+// Responsive pagination
+@include media-breakpoint-down(sm) {
+  .pagination {
+    gap: $pagination-spacing * 0.5;
+
+    .page-link {
+      padding: $pagination-padding-y-sm $pagination-padding-x-sm;
+      font-size: $font-size-sm;
+    }
+  }
+
+  .pagination-xl {
+    @include pagination-size($pagination-size-lg);
+
+    .page-link {
+      font-size: $font-size-sm;
+    }
+  }
+}
+
+// Pagination with icons
+.pagination-icons {
+  .page-link {
+
+    .bi,
+    .fas,
+    .far {
+      font-size: 0.875em;
+    }
   }
 }

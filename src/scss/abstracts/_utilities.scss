@@ -1,0 +1,73 @@
+// Only add utilities that Bootstrap doesn't provide
+$custom-utilities: (
+  // Additional border radii (Bootstrap has rounded-* but not all these)
+  "rounded": (property: border-radius,
+    class: rounded,
+    values: (xl: $border-radius-xl,
+      xxl: 1rem,
+    )),
+
+  // Border widths (Bootstrap has border but not numbered widths)
+  "border-width": (property: border-width,
+    class: border,
+    values: (2: 2px,
+      3: 3px,
+      4: 4px,
+      5: 5px)),
+
+  // Custom heights (Bootstrap has h-25, h-50, h-75, h-100, h-auto)
+  "height": (property: height,
+    class: h,
+    values: (fit: fit-content,
+      max: max-content,
+      min: min-content)),
+
+  // Font weights (Bootstrap has fw-light, normal, bold, but not all)
+  "font-weight": (property: font-weight,
+    class: fw,
+    values: (thin: 100,
+      extralight: 200,
+      medium: 500,
+      semibold: 600,
+      extrabold: 800,
+      black: 900)),
+
+  // Custom cursor utilities
+  "cursor": (property: cursor,
+    class: cursor,
+    values: (grab: grab,
+      zoom-in: zoom-in,
+      zoom-out: zoom-out))
+);
+
+// Generate only the custom utilities
+@each $utility, $map in $custom-utilities {
+  @include generate-utility($map);
+}
+
+// A few custom utility classes
+.min-vh-75 {
+  min-height: 75vh !important;
+}
+
+.w-fit {
+  width: fit-content !important;
+}
+
+.h-fit {
+  height: fit-content !important;
+}
+
+// Hover utilities
+.hover-shadow:hover {
+  box-shadow: $box-shadow-lg !important;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px) !important;
+}
+
+// Transition utilities
+.transition {
+  transition: all 0.3s ease !important;
+}

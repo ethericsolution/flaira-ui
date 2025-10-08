@@ -1,7 +1,6 @@
-// _buttons.scss
-// Button styles
+// Custom button styles
 
-// Button sizes
+// Button variables using Bootstrap scale
 $btn-padding-y-xs: 0.25rem;
 $btn-padding-x-xs: 0.5rem;
 $btn-font-size-xs: 0.75rem;
@@ -9,15 +8,14 @@ $btn-border-radius-xs: 0.25rem;
 
 $btn-icon-size: 2.5rem;
 
-// Button size mixin
-@mixin button-size($padding-y, $padding-x, $font-size, $border-radius) {
-  padding: $padding-y $padding-x;
-  font-size: $font-size;
-  border-radius: $border-radius;
+// Button mixins
+@mixin button-xs-size() {
+  padding: $btn-padding-y-xs $btn-padding-x-xs;
+  font-size: $btn-font-size-xs;
+  border-radius: $btn-border-radius-xs;
 }
 
-// Icon button mixin
-@mixin icon-button($size) {
+@mixin button-icon-size($size) {
   width: $size;
   height: $size;
   padding: 0;
@@ -26,62 +24,70 @@ $btn-icon-size: 2.5rem;
   justify-content: center;
 }
 
-// Ghost button mixin
-@mixin ghost-button($color) {
-  background-color: transparent !important;
-  border: 1px solid transparent !important;
-  color: $color !important;
+@mixin button-ghost-variant($color) {
+  background-color: transparent;
+  border-color: transparent;
+  color: $color;
 
-  &:hover {
+  &:hover,
+  &:focus,
+  &:active {
     background-color: rgba($color, 0.1);
     border-color: rgba($color, 0.2);
+    color: $color;
+  }
+
+  &.disabled,
+  &:disabled {
+    background-color: transparent;
+    border-color: transparent;
+    color: $color;
+    opacity: 0.6;
   }
 }
 
-// Base button styles
+// Button size extensions
 .btn {
+
+  // XS size
+  &.btn-xs {
+    @include button-xs-size();
+  }
+
+  // Icon button
+  &.btn-icon {
+    @include button-icon-size($btn-icon-size);
+  }
+
+  // Icon button sizes
+  &.btn-icon-xs {
+    @include button-icon-size(2rem);
+  }
+
+  &.btn-icon-sm {
+    @include button-icon-size(2.25rem);
+  }
+
+  &.btn-icon-lg {
+    @include button-icon-size(3rem);
+  }
+}
+
+// Generate all ghost button variants in one loop
+@each $name, $color in $theme-colors {
+  .btn-ghost-#{$name} {
+    @include button-ghost-variant($color);
+  }
+}
+
+// Base button enhancements
+.btn {
+  // Ensure proper flex alignment
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  font-weight: 500;
-  line-height: 1.5;
-  text-align: center;
-  text-decoration: none;
-  vertical-align: middle;
-  cursor: pointer;
-  user-select: none;
-  border: 1px solid transparent;
+
+  // Smooth transitions
   transition: all 0.15s ease-in-out;
-
-  &:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-  }
-}
-
-// Button sizes
-.btn-xs {
-  @include button-size($btn-padding-y-xs, $btn-padding-x-xs, $btn-font-size-xs, $btn-border-radius-xs);
-}
-
-// Icon buttons
-.btn-icon {
-  @include icon-button($btn-icon-size);
-}
-
-// Ghost button variants
-$ghost-colors: (
-  primary: $primary,
-  secondary: $secondary,
-  success: $success,
-  danger: $danger,
-  warning: $warning,
-  info: $info
-);
-
-@each $name, $color in $ghost-colors {
-  .btn-ghost-#{$name} {
-    @include ghost-button($color);
-  }
 }

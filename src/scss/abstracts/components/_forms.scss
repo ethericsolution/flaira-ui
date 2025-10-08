@@ -1,15 +1,7 @@
-// _forms.scss
-// Custom form input styles
+// Custom form styles using Bootstrap variables
 
-// Form variables
-$input-outline-border-width: 2px;
-$input-underline-border-width: 2px;
-$input-filled-bg: #f8f9fa;
-// $input-focus-shadow: 0 0 0 0.2rem rgba($primary, 0.1);
-$input-focus-shadow: none !important;
-$input-border-width: 1.75px;
 
-// Form mixins
+// ===== FORM INPUT MIXINS =====
 @mixin input-variant($background, $border, $focus-bg: null, $focus-border: $primary) {
   background-color: $background;
   border: $border;
@@ -43,9 +35,87 @@ $input-border-width: 1.75px;
   }
 }
 
-// Input variants
+@mixin input-size($padding-y, $padding-x, $font-size, $line-height: $line-height-base, $border-radius: $border-radius) {
+  padding: $padding-y $padding-x;
+  font-size: $font-size;
+  line-height: $line-height;
+  border-radius: $border-radius;
+}
+
+// ===== FORM CONTROLS MIXINS =====
+@mixin form-check-color($color) {
+  &:checked {
+    background-color: $color;
+    border-color: $color;
+  }
+}
+
+@mixin form-check-size($size) {
+  width: $size;
+  height: $size;
+  flex-shrink: 0;
+}
+
+@mixin switch-size($height, $width, $checked-position) {
+  height: $height;
+  width: $width;
+
+  &:checked {
+    background-position: right $checked-position center;
+  }
+}
+
+@mixin generate-form-check-variants($types: (), $variants: ()) {
+  @each $type in $types {
+    @each $name, $color in $variants {
+      .custom-#{$type}-#{$name} {
+        @include form-check-color($color);
+      }
+    }
+  }
+}
+
+// ===== INPUT SIZE VARIANTS =====
+.form-control-sm {
+  @include input-size($input-padding-y-sm, $input-padding-x-sm, $input-font-size-sm, $line-height-sm, $border-radius-sm);
+}
+
+.form-control-lg {
+  @include input-size($input-padding-y-lg, $input-padding-x-lg, $input-font-size-lg, $line-height-lg, $border-radius-lg);
+}
+
+.form-control-xl {
+  @include input-size($input-padding-y-xl, $input-padding-x-xl, $input-font-size-xl, $line-height-lg, $border-radius-lg);
+}
+
+// Apply to selects as well
+.form-select-sm {
+  @include input-size($input-padding-y-sm, $input-padding-x-sm, $input-font-size-sm, $line-height-sm, $border-radius-sm);
+}
+
+.form-select-lg {
+  @include input-size($input-padding-y-lg, $input-padding-x-lg, $input-font-size-lg, $line-height-lg, $border-radius-lg);
+}
+
+.form-select-xl {
+  @include input-size($input-padding-y-xl, $input-padding-x-xl, $input-font-size-xl, $line-height-lg, $border-radius-lg);
+}
+
+// ===== FORM INPUT VARIANTS =====
 .form-control-outline {
   @include input-outline();
+
+  &.form-control-sm {
+    border-width: 1px;
+  }
+
+  &.form-control-lg {
+    border-width: 2px;
+  }
+
+  &.form-control-xl {
+    border-width: 2px;
+  }
 }
 
 .form-control-filled {
@@ -56,7 +126,6 @@ $input-border-width: 1.75px;
   @include input-underline();
 }
 
-// Select variants
 .form-select-outline {
   @include input-outline();
 }
@@ -65,44 +134,235 @@ $input-border-width: 1.75px;
   @include input-filled();
 }
 
-// Enhanced input groups
+// ===== FORM CHECK VARIANTS =====
+$form-check-types: checkbox, radio, switch;
+$form-check-variants: (
+  primary: $primary,
+  success: $success,
+  warning: $warning,
+  danger: $danger,
+  info: $info,
+  secondary: $secondary
+);
+
+// Apply color variants to checkboxes, radios, and switches
+.form-check-input {
+  @include generate-form-check-variants((checkbox), $form-check-variants);
+}
+
+.form-check-input[type="radio"] {
+  @include generate-form-check-variants((radio), $form-check-variants);
+}
+
+.form-switch .form-check-input {
+  @include generate-form-check-variants((switch), $form-check-variants);
+}
+
+// ===== FORM CHECK SIZES =====
+.form-check-sm .form-check-input {
+  @include form-check-size($form-check-size-sm);
+  margin-top: 0.1em;
+}
+
+.form-check-lg .form-check-input {
+  @include form-check-size($form-check-size-lg);
+  margin-top: 0.05em;
+}
+
+.form-check-xl .form-check-input {
+  @include form-check-size($form-check-size-xl);
+  margin-top: 0;
+}
+
+// Adjust label alignment for larger checkboxes
+.form-check-lg,
+.form-check-xl {
+  .form-check-label {
+    padding-top: 0.1rem;
+  }
+}
+
+// ===== SWITCH SIZES =====
+.form-switch-lg .form-check-input {
+  @include switch-size($form-switch-height-lg, $form-switch-width-lg, $form-switch-height-lg);
+}
+
+.form-switch-sm .form-check-input {
+  @include switch-size($form-switch-height-sm, $form-switch-width-sm, $form-switch-height-sm);
+}
+
+.form-switch-xs .form-check-input {
+  @include switch-size($form-switch-height-xs, $form-switch-width-xs, $form-switch-height-xs);
+}
+
+// ===== CARD CHECKBOXES & RADIOS =====
+.card-checkbox,
+.card-radio {
+  position: relative;
+
+  .form-check-input {
+    position: absolute;
+    left: $card-checkbox-padding;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .form-check-label {
+    padding: $card-checkbox-padding $card-checkbox-padding $card-checkbox-padding $card-checkbox-indicator-position;
+    border: 1px solid $gray-300;
+    border-radius: $border-radius;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: block;
+    margin-bottom: 0;
+
+    &:hover {
+      border-color: $primary;
+      background-color: rgba($primary, 0.02);
+    }
+  }
+
+  .form-check-input:checked~.form-check-label {
+    border-color: $primary;
+    background-color: rgba($primary, 0.05);
+  }
+
+  // Size variants for card checkboxes
+  &.card-checkbox-sm {
+    .form-check-input {
+      @include form-check-size($form-check-size-sm);
+    }
+
+    .form-check-label {
+      padding: $spacer * 0.75 $spacer * 0.75 $spacer * 0.75 $card-checkbox-indicator-position * 0.75;
+      font-size: $font-size-sm;
+    }
+  }
+
+  &.card-checkbox-lg {
+    .form-check-input {
+      @include form-check-size($form-check-size-lg);
+    }
+
+    .form-check-label {
+      padding: $spacer * 1.25 $spacer * 1.25 $spacer * 1.25 $card-checkbox-indicator-position * 1.25;
+      font-size: $font-size-lg;
+    }
+  }
+}
+
+// ===== ENHANCED INPUT GROUPS =====
 .input-group-text {
   background-color: $input-filled-bg;
   border-color: $gray-300;
   color: $gray-600;
+
+  // Size variants for input group text
+  &.input-group-text-sm {
+    @include input-size($input-padding-y-sm, $input-padding-x-sm, $input-font-size-sm);
+  }
+
+  &.input-group-text-lg {
+    @include input-size($input-padding-y-lg, $input-padding-x-lg, $input-font-size-lg);
+  }
+
+  &.input-group-text-xl {
+    @include input-size($input-padding-y-xl, $input-padding-x-xl, $input-font-size-xl);
+  }
+}
+
+.input-group {
+
+  // Ensure proper sizing for input groups
+  &.input-group-sm {
+
+    .form-control,
+    .form-select {
+      @include input-size($input-padding-y-sm, $input-padding-x-sm, $input-font-size-sm);
+    }
+
+    .input-group-text {
+      @include input-size($input-padding-y-sm, $input-padding-x-sm, $input-font-size-sm);
+    }
+  }
+
+  &.input-group-lg {
+
+    .form-control,
+    .form-select {
+      @include input-size($input-padding-y-lg, $input-padding-x-lg, $input-font-size-lg);
+    }
+
+    .input-group-text {
+      @include input-size($input-padding-y-lg, $input-padding-x-lg, $input-font-size-lg);
+    }
+  }
+
+  &.input-group-xl {
+
+    .form-control,
+    .form-select {
+      @include input-size($input-padding-y-xl, $input-padding-x-xl, $input-font-size-xl);
+    }
+
+    .input-group-text {
+      @include input-size($input-padding-y-xl, $input-padding-x-xl, $input-font-size-xl);
+    }
+  }
 }
 
 .input-group .form-control:focus {
   z-index: 3;
 }
 
-// Update select option z-index
+// ===== FORM SELECT ENHANCEMENTS =====
 .form-select {
   option {
-    z-index: 9999; // Updated z-index for options
+    z-index: 9999;
   }
 }
 
-// Custom focus states
+// ===== CUSTOM FOCUS STATES =====
 .form-control:focus,
 .form-select:focus {
   border-color: $primary;
   box-shadow: $input-focus-shadow;
 }
 
-// Improved spacing
+// ===== IMPROVED SPACING =====
 .form-label {
   font-weight: 600;
   margin-bottom: 0.5rem;
   color: $gray-700;
+
+  // Larger labels for larger inputs
+  &.form-label-lg {
+    font-size: $font-size-lg;
+    margin-bottom: 0.75rem;
+  }
+
+  &.form-label-xl {
+    font-size: $font-size-lg;
+    margin-bottom: 1rem;
+  }
 }
 
 .form-text {
-  font-size: 0.875rem;
+  font-size: $font-size-sm;
   margin-top: 0.25rem;
+
+  // Larger help text
+  &.form-text-lg {
+    font-size: $font-size-base;
+  }
+
+  &.form-text-xl {
+    font-size: $font-size-base;
+    margin-top: 0.5rem;
+  }
 }
 
-// Floating label enhancements
+// ===== FLOATING LABEL ENHANCEMENTS =====
 .form-floating {
 
   >.form-control:focus~label,
@@ -111,14 +371,41 @@ $input-border-width: 1.75px;
     color: $gray-600;
     font-weight: 500;
   }
+
+  // Larger floating labels
+  &.form-floating-lg {
+
+    >.form-control,
+    >.form-select {
+      @include input-size($input-padding-y-lg, $input-padding-x-lg, $input-font-size-lg);
+    }
+  }
+
+  &.form-floating-xl {
+
+    >.form-control,
+    >.form-select {
+      @include input-size($input-padding-y-xl, $input-padding-x-xl, $input-font-size-xl);
+    }
+  }
 }
 
-// Character counter
+// ===== INDETERMINATE CHECKBOX =====
+#indeterminateCheck {
+  border-color: $primary;
+
+  &:indeterminate {
+    background-color: $primary;
+    border-color: $primary;
+  }
+}
+
+// ===== CHARACTER COUNTER =====
 #charCounter {
   padding-bottom: 2rem;
 }
 
-// Password strength
+// ===== PASSWORD STRENGTH =====
 .password-strength .progress-bar {
   transition: width 0.3s ease;
 }

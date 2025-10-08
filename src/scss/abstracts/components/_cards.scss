@@ -1,21 +1,159 @@
-// _cards.scss
-// Only custom card variables - Bootstrap handles the rest
+// Custom card styles
 
-// Using Bootstrap's card Sass variables
-$card-spacer-y: #{$spacer};
-$card-spacer-x: #{$spacer};
-$card-title-spacer-y: #{$spacer * 0.5};
+// Card variables using Bootstrap scale
+$card-spacer-y-sm: $spacer * 0.75;
+$card-spacer-x-sm: $spacer * 0.75;
+$card-spacer-y-lg: $spacer * 1.5;
+$card-spacer-x-lg: $spacer * 1.5;
+$card-spacer-y-xl: $spacer * 2;
+$card-spacer-x-xl: $spacer * 2;
+
 $card-border-width: 0;
-$card-border-color: #{$gray-300};
-$card-border-radius: #{$border-radius-xl};
-$card-box-shadow: #{$box-shadow-xl};
-$card-inner-border-radius: #{$border-radius-xl};
-$card-cap-padding-y: #{$spacer};
-$card-cap-padding-x: #{$spacer};
-$card-cap-bg: transparent;
-$card-cap-color: null;
-$card-height: null;
-$card-color: null;
-$card-bg: #{$white};
+$card-border-color: $gray-300;
+$card-border-radius: $border-radius-xl;
+$card-box-shadow: $box-shadow-sm;
 
-// No additional CSS needed - Bootstrap components will use these variables
+// Card mixins
+@mixin card-size($padding-y, $padding-x) {
+  .card-body {
+    padding: $padding-y $padding-x;
+  }
+
+  .card-header,
+  .card-footer {
+    padding: $padding-y $padding-x;
+  }
+}
+
+@mixin card-border-variant($color) {
+  border-left: 4px solid $color;
+}
+
+@mixin card-hover-variant() {
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $box-shadow-lg;
+  }
+}
+
+@mixin card-gradient-variant($color) {
+  background: linear-gradient(135deg, $color 0%, darken($color, 10%) 100%);
+  color: color-contrast($color);
+
+  .card-title,
+  .card-text {
+    color: color-contrast($color);
+  }
+
+  .btn-close {
+    filter: $btn-close-white-filter;
+  }
+}
+
+// Card sizes
+.card {
+
+  // Small card
+  &.card-sm {
+    @include card-size($card-spacer-y-sm, $card-spacer-x-sm);
+  }
+
+  // Large card
+  &.card-lg {
+    @include card-size($card-spacer-y-lg, $card-spacer-x-lg);
+  }
+
+  // Extra large card
+  &.card-xl {
+    @include card-size($card-spacer-y-xl, $card-spacer-x-xl);
+  }
+
+  // Hover card
+  &.card-hover {
+    @include card-hover-variant();
+  }
+}
+
+// Generate all card border variants in one loop
+@each $name, $color in $theme-colors {
+  .card-border-#{$name} {
+    @include card-border-variant($color);
+  }
+}
+
+// Generate all card gradient variants in one loop
+@each $name, $color in $theme-colors {
+  .card-gradient-#{$name} {
+    @include card-gradient-variant($color);
+  }
+}
+
+// Card header variants
+@each $name, $color in $theme-colors {
+  .card-header-#{$name} {
+    background-color: $color;
+    color: color-contrast($color);
+    border-bottom: 0;
+
+    .card-title {
+      color: color-contrast($color);
+    }
+  }
+}
+
+// Base card enhancements
+.card {
+  border-radius: $card-border-radius;
+  box-shadow: $card-box-shadow;
+  border: $card-border-width solid $card-border-color;
+
+  // Improve card image top
+  .card-img-top {
+    border-radius: $card-border-radius $card-border-radius 0 0;
+  }
+
+  // Card header improvements
+  .card-header {
+    border-bottom: 1px solid $gray-200;
+    background-color: $white;
+
+    &:first-child {
+      border-radius: $card-border-radius $card-border-radius 0 0;
+    }
+  }
+
+  // Card footer improvements
+  .card-footer {
+    border-top: 1px solid $gray-200;
+    background-color: $white;
+
+    &:last-child {
+      border-radius: 0 0 $card-border-radius $card-border-radius;
+    }
+  }
+}
+
+// Card group enhancements
+.card-group {
+  gap: $spacer;
+
+  .card {
+    margin-bottom: 0;
+  }
+}
+
+// Responsive cards
+@include media-breakpoint-down(md) {
+
+  .card-sm,
+  .card-lg,
+  .card-xl {
+    @include card-size($spacer, $spacer);
+  }
+
+  .card-group {
+    gap: $spacer * 0.5;
+  }
+}
