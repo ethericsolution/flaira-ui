@@ -1,22 +1,36 @@
-// Badge styles
-.badge {
-  font-weight: 500;
-  font-size: 0.75rem;
-  padding: 0.25rem 0.5rem;
+// Badge mixins
+@mixin badge-outline-variant($color) {
+  background-color: transparent !important;
+  border: $border-width solid $color !important;
+  color: $color;
+}
 
-  &.badge-sm {
-    font-size: 0.6875rem;
-    padding: 0.1875rem 0.375rem;
+@mixin badge-soft-variant($color) {
+  background-color: rgba($color, 0.1) !important;
+  color: $color;
+  border: $border-width solid transparent !important;
+}
+
+// Generate all badge variants in one loop
+@each $name, $color in $theme-colors {
+
+  // Outline badges
+  .badge-outline-#{$name} {
+    @include badge-outline-variant($color);
   }
 
-  &.badge-lg {
-    font-size: 0.875rem;
-    padding: 0.375rem 0.75rem;
+  // Soft badges
+  .badge-soft-#{$name} {
+    @include badge-soft-variant($color);
   }
 }
 
-// Custom badge variants
-.badge-outline {
-  background: transparent;
-  border: 1px solid currentColor;
+// Dot badge
+.badge-dot {
+  width: $badge-dot-size !important;
+  height: $badge-dot-size !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  display: inline-block !important;
+  border: 2px solid $white !important;
 }

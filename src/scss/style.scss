@@ -53,18 +53,18 @@
 @import 'base/typography';
 @import 'base/utilities';
 
-// Import custom components
-@import "abstracts/components/alerts";
-@import "abstracts/components/badges";
-@import "abstracts/components/buttons";
-@import "abstracts/components/cards";
-@import "abstracts/components/forms";
-@import "abstracts/components/pagination";
-@import "abstracts/components/tables";
-
 
 // Layout
 @import 'layout/sidebar';
 @import 'layout/header';
 @import 'layout/footer';
-@import 'layout/grid';
+
+
+// Components
+@import "components/alerts";
+@import "components/badges";
+@import "components/buttons";
+@import "components/cards";
+@import "components/forms";
+@import "components/pagination";
+@import "components/tables";

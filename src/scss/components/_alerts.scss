@@ -1,22 +1,3 @@
-// _alerts.scss
-// Custom alert styles
-
-// Alert variables
-$alert-padding-y-sm: 0.5rem;
-$alert-padding-x-sm: 0.75rem;
-$alert-font-size-sm: 0.875rem;
-
-$alert-padding-y-lg: 1rem;
-$alert-padding-x-lg: 1.25rem;
-$alert-font-size-lg: 1.125rem;
-
-$alert-padding-y-xl: 1.5rem;
-$alert-padding-x-xl: 1.5rem;
-$alert-font-size-xl: 1.25rem;
-
-$alert-icon-size: 2.5rem;
-$alert-icon-gap: 1rem;
-
 // Alert mixins
 @mixin alert-outline-variant($color) {
   background-color: transparent;

@@ -16,7 +16,6 @@ body {
   font-size: $font-size-base;
   line-height: $line-height-base;
   color: $gray-700;
-  // overflow-x: hidden;
   margin: 0;
   padding: 0;
 }
@@ -24,9 +23,5 @@ body {
 // Selection
 ::selection {
   background: rgba($primary, 0.1);
-  color: $primary;
-}
-
-main {
-  overflow-x: auto;
+  color: rgba($primary, 0.5);
 }

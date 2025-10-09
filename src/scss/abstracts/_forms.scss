@@ -1,0 +1,42 @@
+$form-switch-height-lg: 1.5rem;
+$form-switch-width-lg: 3rem;
+$form-switch-height-sm: 1rem;
+$form-switch-width-sm: 2rem;
+$form-switch-height-xs: 0.75rem;
+$form-switch-width-xs: 1.5rem;
+
+$form-check-size-sm: 1rem;
+$form-check-size-lg: 1.5rem;
+$form-check-size-xl: 2rem;
+
+$card-checkbox-padding: $spacer;
+$card-checkbox-indicator-position: 3rem;
+
+$form-check-input-focus-box-shadow: none;
+$form-check-input-width: 1.5em;
+
+// ===== FORM INPUT VARIABLES =====
+
+// Input size variables
+$input-padding-y: 0.5rem;
+$input-padding-x: 0.75rem;
+$input-font-size: 1rem;
+
+$input-padding-y-sm: $input-padding-y*0.75;
+$input-padding-x-sm: $input-padding-x*0.75;
+$input-font-size-sm: $input-font-size*0.75;
+
+$input-padding-y-lg: $input-padding-y*1.25;
+$input-padding-x-lg: $input-padding-x*1.25;
+$input-font-size-lg: $input-font-size*1.25;
+
+$input-focus-box-shadow: none;
+$form-select-focus-box-shadow: none;
+
+$form-label-font-weight: 400;
+
+$input-border-width: 1.875px;
+$input-focus-border-color: $primary;
+
+$form-feedback-icon-valid: none;
+$form-feedback-icon-invalid: none;
