@@ -1,0 +1,143 @@
+<!-- Navigation Menu - Second Row -->
+<nav class="nav-menu" aria-label="Main navigation">
+  <div
+    class="container h-100 d-flex align-items-center justify-content-between"
+  >
+    <!-- Left: Main Navigation -->
+    <div class="main-navigation">
+      <ul class="nav nav-pills">
+        <!-- Dashboard -->
+        <li class="nav-item">
+          <a
+            href="index.html"
+            class="nav-link {% if current_page == 'dashboard' %}active{% endif %}"
+            aria-current="page"
+          >
+            <i class="bi bi-speedometer2 me-1"></i>
+            Dashboard
+          </a>
+        </li>
+
+        <!-- Layout Dropdown -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle {% if current_section == 'layout' %}active{% endif %}"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bi bi-layout-sidebar me-1"></i>
+            Layout
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="cards.html">
+                <i class="bi bi-card-text me-2"></i>Cards
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="tables.html">
+                <i class="bi bi-table me-2"></i>Tables
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="widgets.html">
+                <i class="bi bi-grid-3x3-gap me-2"></i>Widgets
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- Components Dropdown -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle {% if current_section == 'components' %}active{% endif %}"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bi bi-puzzle me-1"></i>
+            Components
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="buttons.html">
+                <i class="bi bi-toggle-on me-2"></i>Buttons
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="badges.html">
+                <i class="bi bi-bookmark me-2"></i>Badges
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="alerts.html">
+                <i class="bi bi-exclamation-triangle me-2"></i>Alerts
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="accordion.html">
+                <i class="bi bi-layers me-2"></i>Accordion
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- Forms Dropdown -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle {% if current_section == 'forms' %}active{% endif %}"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="bi bi-card-checklist me-1"></i>
+            Forms
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="form-elements.html">
+                <i class="bi bi-input-cursor me-2"></i>Form Elements
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="form-layouts.html">
+                <i class="bi bi-layout-text-sidebar me-2"></i>Form Layouts
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="form-validation.html">
+                <i class="bi bi-patch-check me-2"></i>Form Validation
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- Pages -->
+        <li class="nav-item">
+          <a
+            href="profile.html"
+            class="nav-link {% if current_page == 'profile' %}active{% endif %}"
+          >
+            <i class="bi bi-person me-1"></i>
+            Profile
+          </a>
+        </li>
+
+        <!-- Settings -->
+        <li class="nav-item">
+          <a
+            href="settings.html"
+            class="nav-link {% if current_page == 'settings' %}active{% endif %}"
+          >
+            <i class="bi bi-gear me-1"></i>
+            Settings
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -46,3 +46,120 @@
     }
   }
 }
+
+
+// Header Variables
+$top-header-height: 70px;
+$nav-menu-height: 60px;
+$header-bg: $white;
+$header-border: $gray-200;
+$header-shadow: none;
+
+// Top Header - First Row
+.top-header {
+  height: $top-header-height;
+  background: $header-bg;
+  border-bottom: 1px solid $header-border;
+  box-shadow: $header-shadow;
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+  transition: all 0.3s ease;
+
+
+  // Logo
+  .header-logo {
+    .logo-link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: $dark;
+      font-weight: 600;
+      font-size: 1.25rem;
+
+      .logo-icon {
+        font-size: 1.5rem;
+        color: $primary;
+        margin-right: 0.5rem;
+      }
+
+      .logo-text {
+        font-weight: 700;
+      }
+    }
+  }
+
+}
+
+// Navigation Menu - Second Row
+.nav-menu {
+  height: $nav-menu-height;
+  background: lighten($primary, 55%);
+  border-bottom: 1px solid $header-border;
+  position: sticky;
+  top: $top-header-height;
+  z-index: 1015;
+
+  // Main Navigation
+  .main-navigation {
+    .nav {
+      .nav-item {
+        margin-right: 0.5rem;
+
+        .nav-link {
+          white-space: nowrap;
+          padding: 0.75rem 1rem;
+          color: $gray-700;
+          border-radius: $border-radius;
+          font-weight: 500;
+          transition: all 0.2s ease;
+          border: none;
+          background: transparent;
+
+          i {
+            font-size: 0.875rem;
+          }
+
+          &:hover {
+            background: rgba($primary, 0.1);
+            color: $primary;
+          }
+
+          &.active {
+            background: $primary;
+            color: $white;
+            box-shadow: 0 2px 4px rgba($primary, 0.3);
+          }
+
+          &.dropdown-toggle::after {
+            margin-left: 0.5rem;
+          }
+        }
+
+        .dropdown-menu {
+          border: 1px solid $gray-200;
+          box-shadow: 0 4px 12px rgba($black, 0.15);
+          margin-top: 0.5rem;
+          animation: dropdownSlide 0.2s ease;
+
+          .dropdown-item {
+            padding: 0.5rem 1rem;
+            color: $gray-700;
+            transition: all 0.2s ease;
+
+            i {
+              width: 16px;
+              text-align: center;
+            }
+
+            &:hover {
+              background: $gray-100;
+              color: $primary;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

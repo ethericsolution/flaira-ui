@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="{% block description %}Admin Dashboard - Modern Admin Template{% endblock %}"
+    />
+    <meta
+      name="keywords"
+      content="{% block keywords %}admin,dashboard,template{% endblock %}"
+    />
+
+    <title>{% block title %}AdminKit - Dashboard{% endblock %}</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.min.css" />
+
+    <!-- Additional head content -->
+    {% block head_extras %}{% endblock %}
+  </head>
+
+  <body>
+    <!-- Layout Wrapper -->
+    <div>
+      <!-- Top Header -->
+      {% include "partials/top-header.njk" %}
+
+      <!-- Navigation Menu -->
+      {% include "partials/nav-menu.njk" %}
+
+      <div class="container">
+        <!-- Main Content -->
+        <main
+          class="main-content"
+          style="padding-left: 0; padding-right: 0"
+          id="main-content"
+          role="main"
+        >
+          {% block content %}{% endblock %}
+        </main>
+
+        <!-- Footer -->
+        {% include "partials/footer.njk" %}
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/scripts.min.js"></script>
+
+    <!-- Additional scripts -->
+    {% block scripts %}{% endblock %}
+  </body>
+</html>

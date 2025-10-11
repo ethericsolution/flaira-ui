@@ -1,0 +1,149 @@
+<!-- Top Header - First Row -->
+<header class="top-header">
+  <div
+    class="container h-100 d-flex align-items-center justify-content-between"
+  >
+    <!-- Left: Logo -->
+    <div class="header-logo">
+      <a href="index.html" class="logo-link">
+        <i class="bi bi-speedometer2 logo-icon"></i>
+        <span class="logo-text">AdminKit</span>
+      </a>
+    </div>
+    <!-- Search -->
+    <div class="header-search">
+      <div class="input-group input-group-sm">
+        <span class="input-group-text bg-light border-0">
+          <i class="bi bi-search text-muted"></i>
+        </span>
+        <input
+          type="text"
+          class="form-control bg-light border-0"
+          placeholder="Search..."
+          id="globalSearch"
+          aria-label="Search"
+        />
+        <button
+          class="btn btn-light border-0 d-none"
+          type="button"
+          id="clearSearch"
+          aria-label="Clear search"
+        >
+          <i class="bi bi-x"></i>
+        </button>
+      </div>
+    </div>
+    <!-- Right: User Details & Actions -->
+    <div class="header-actions">
+      <div class="d-flex align-items-center gap-3">
+        <!-- Notifications -->
+        <div class="dropdown">
+          <button
+            class="btn btn-light border-0 position-relative"
+            type="button"
+            id="notificationsDropdown"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            aria-label="Notifications"
+          >
+            <i class="bi bi-bell"></i>
+            <span
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+            >
+              3
+              <span class="visually-hidden">unread notifications</span>
+            </span>
+          </button>
+          <div
+            class="dropdown-menu dropdown-menu-end notification-dropdown"
+            aria-labelledby="notificationsDropdown"
+            style="width: 280px"
+          >
+            <div
+              class="d-flex align-items-center justify-content-between p-3 border-bottom"
+            >
+              <h6 class="mb-0">Notifications</h6>
+              <span class="badge bg-primary">3 New</span>
+            </div>
+            <div class="notification-list">
+              <a href="#" class="dropdown-item notification-item unread">
+                <div class="d-flex">
+                  <div
+                    class="bg-primary rounded-circle d-flex align-items-center justify-content-center"
+                    style="width: 32px; height: 32px"
+                  >
+                    <i class="bi bi-person-plus"></i>
+                  </div>
+                  <div class="ms-3">
+                    <p class="mb-1">New user registered</p>
+                    <small class="text-muted">2 minutes ago</small>
+                  </div>
+                </div>
+              </a>
+              <a href="#" class="dropdown-item notification-item unread">
+                <div class="d-flex">
+                  <div
+                    class="bg-success rounded-circle d-flex align-items-center justify-content-center"
+                    style="width: 32px; height: 32px"
+                  >
+                    <i class="bi bi-cart-check"></i>
+                  </div>
+                  <div class="ms-3">
+                    <p class="mb-1">New order received</p>
+                    <small class="text-muted">1 hour ago</small>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="p-2 border-top text-center">
+              <a href="#" class="text-decoration-none"
+                >View All Notifications
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- User Menu -->
+        <div class="dropdown">
+          <button
+            class="btn btn-light border-0 d-flex align-items-center"
+            type="button"
+            id="userDropdown"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            aria-label="User menu"
+          >
+            <img
+              src="https://placehold.co/32x32"
+              alt="User avatar"
+              class="avatar-sm rounded-circle me-2"
+            />
+            <span class="d-none d-md-inline">John Doe</span>
+            <i class="bi bi-chevron-down ms-1"></i>
+          </button>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="userDropdown"
+          >
+            <li>
+              <a class="dropdown-item" href="profile.html">
+                <i class="bi bi-person me-2"></i>Profile
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="settings.html">
+                <i class="bi bi-gear me-2"></i>Settings
+              </a>
+            </li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item" href="auth/login.html">
+                <i class="bi bi-box-arrow-right me-2"></i>Sign Out
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
