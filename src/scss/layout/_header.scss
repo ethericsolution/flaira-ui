@@ -49,11 +49,20 @@
 
 
 // Header Variables
-$top-header-height: 70px;
-$nav-menu-height: 60px;
 $header-bg: $white;
 $header-border: $gray-200;
 $header-shadow: none;
+
+body {
+  &[data-sidebar="false"] {
+    .main-content-wrapper {
+      overflow: hidden;
+      margin-left: auto !important;
+
+      min-height: calc(100vh - var(--top-header-height) - var(--nav-menu-height)) !important;
+    }
+  }
+}
 
 // Top Header - First Row
 .top-header {
@@ -94,7 +103,7 @@ $header-shadow: none;
 // Navigation Menu - Second Row
 .nav-menu {
   height: $nav-menu-height;
-  background: lighten($primary, 55%);
+  background: $white;
   border-bottom: 1px solid $header-border;
   position: sticky;
   top: $top-header-height;

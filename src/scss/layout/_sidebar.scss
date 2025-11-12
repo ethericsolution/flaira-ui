@@ -11,6 +11,7 @@
   min-height: 100vh;
   margin-left: var(--sidebar-width);
   transition: margin-left 0.3s ease;
+  overflow: hidden;
 
   @include mobile {
     margin-left: 0;
@@ -142,14 +143,14 @@
             }
 
             &.active {
-              background: $primary;
-              color: $white;
-              border-left-color: darken($primary, 15%);
+              background: $gray-100;
+              color: $gray-700;
+              border-left-color: $gray-400;
               font-weight: 500;
 
-              &:hover {
-                background: darken($primary, 5%);
-              }
+              /*  &:hover {
+                                background: darken($primary, 5%);
+                            } */
             }
           }
         }
@@ -197,18 +198,6 @@
             background: rgba($white, 0.2) !important;
             color: $white !important;
           }
-        }
-
-        &.active::before {
-          content: '';
-          position: absolute;
-          left: 0;
-          top: 50%;
-          transform: translateY(-50%);
-          width: 3px;
-          height: 60%;
-          background: $primary;
-          border-radius: 0 1px 1px 0;
         }
       }
     }
